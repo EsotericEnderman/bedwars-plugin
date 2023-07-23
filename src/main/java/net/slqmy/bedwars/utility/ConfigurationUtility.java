@@ -1,6 +1,6 @@
-package net.slqmy.block_muncher.utility;
+package net.slqmy.bedwars.utility;
 
-import net.slqmy.block_muncher.Bedwars;
+import net.slqmy.bedwars.Bedwars;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -15,7 +15,7 @@ public final class ConfigurationUtility {
 	}
 
 	public static int getMinPlayers() {
-		return config.getInt("min-players");
+		return config.getInt("required-players");
 	}
 
 	public static int getCountdownSeconds() {
@@ -27,11 +27,12 @@ public final class ConfigurationUtility {
 		assert worldName != null;
 
 		return new Location(
-				Bukkit.getWorld(worldName),
-				config.getDouble("lobby-spawn.x"),
-				config.getDouble("lobby-spawn.y"),
-				config.getDouble("lobby-spawn.z"),
-				(float) config.getDouble("lobby-spawn.yaw"),
-				(float) config.getDouble("lobby-spawn.pitch"));
+						Bukkit.getWorld(worldName),
+						config.getDouble("lobby-spawn.x"),
+						config.getDouble("lobby-spawn.y"),
+						config.getDouble("lobby-spawn.z"),
+						(float) config.getDouble("lobby-spawn.yaw"),
+						(float) config.getDouble("lobby-spawn.pitch")
+		);
 	}
 }

@@ -1,10 +1,10 @@
-package net.slqmy.block_muncher;
+package net.slqmy.bedwars;
 
-import net.slqmy.block_muncher.commands.ArenaCommand;
-import net.slqmy.block_muncher.events.listeners.ConnectionListener;
-import net.slqmy.block_muncher.events.listeners.GameListener;
-import net.slqmy.block_muncher.managers.ArenaManager;
-import net.slqmy.block_muncher.utility.ConfigurationUtility;
+import net.slqmy.bedwars.commands.ArenaCommand;
+import net.slqmy.bedwars.events.listeners.ConnectionListener;
+import net.slqmy.bedwars.events.listeners.GameListener;
+import net.slqmy.bedwars.managers.ArenaManager;
+import net.slqmy.bedwars.utility.ConfigurationUtility;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;

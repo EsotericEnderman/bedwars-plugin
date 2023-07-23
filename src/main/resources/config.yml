@@ -1,26 +1,72 @@
-min-players: 2
+required-players: 4
 
 countdown-seconds: 15
 
 lobby-spawn:
   world-name: world
-  x:
-  y:
-  z:
-  yaw: -180
+  x: 0
+  y: 116
+  z: 0
+  yaw: 0
   pitch: 0
 arenas:
-  0:
-    world-name: world
-    x:
-    y:
-    z:
-    yaw: -180
-    pitch: 0
   1:
     world-name: world
-    x:
-    y:
-    z:
-    yaw: -180
-    pitch: 0
+    void-level: 20
+    teams:
+      red:
+        name: Red
+        colour: "&c"
+        spawn:
+          x: -4
+          y: 116
+          z: 25
+          yaw: 90
+          pitch: 0
+        bed-location:
+          x: -3
+          y: 116
+          z: 25
+          facing: west
+      yellow:
+        name: Yellow
+        colour: "&e"
+        spawn:
+          x: -39
+          y: 116
+          z: 25
+          yaw: -90
+          pitch: 0
+        bed-location:
+          x: -40
+          y: 116
+          z: 25
+          facing: east
+      green:
+        name: Green
+        colour: "&a"
+        spawn:
+          x: -39
+          y: 116
+          z: 57
+          pitch: -90
+          yaw: 0
+        bed-location:
+          x: -39
+          y: 116
+          z: 57
+          facing: east
+      blue:
+        name: Blue
+        colour: "&9"
+        spawn:
+          x: -4
+          y: 116
+          z: 57
+          yaw: 90
+          pitch: 0
+        bed-location:
+          x: -3
+          y: 116
+          z: 57
+          facing: west

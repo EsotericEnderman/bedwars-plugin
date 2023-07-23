@@ -1,4 +1,4 @@
-package net.slqmy.block_muncher.utility;
+package net.slqmy.bedwars.utility;
 
 import org.bukkit.ChatColor;
 import org.jetbrains.annotations.NotNull;
@@ -21,7 +21,7 @@ public final class PluginUtility {
 
 	@NotNull
 	public static String replaceAll(@NotNull final String input, @NotNull final Pattern pattern,
-			@NotNull final String replaceString) {
+	                                @NotNull final String replaceString) {
 		final Matcher matcher = pattern.matcher(input);
 		return matcher.replaceAll(replaceString);
 	}

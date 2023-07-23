@@ -1,4 +1,4 @@
-package net.slqmy.block_muncher.enums;
+package net.slqmy.bedwars.enums;
 
 import org.bukkit.ChatColor;
 import org.jetbrains.annotations.NotNull;

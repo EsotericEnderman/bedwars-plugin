@@ -1,8 +1,10 @@
-package net.slqmy.block_muncher.types;
+package net.slqmy.bedwars.types;
 
-import net.slqmy.block_muncher.Bedwars;
-import net.slqmy.block_muncher.enums.GameState;
-import net.slqmy.block_muncher.utility.ConfigurationUtility;
+import net.slqmy.bedwars.Bedwars;
+import net.slqmy.bedwars.enums.GameState;
+import net.slqmy.bedwars.enums.Team;
+import net.slqmy.bedwars.utility.ConfigurationUtility;
+import net.slqmy.bedwars.utility.types.BedLocation;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -10,6 +12,7 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,20 +20,26 @@ public final class Arena {
 	private final Bedwars plugin;
 
 	private final int id;
-	private final Location spawn;
+	private final HashMap<Team, Location> spawns;
+	private final HashMap<Team, BedLocation> bedLocations;
+	private final double voidLevel;
+	private final List<UUID> players = new ArrayList<>();
 
 	private GameState state = GameState.WAITING;
-	private final List<UUID> players = new ArrayList<>();
 	private Game game;
 	private Countdown countdown;
 
-	public Arena(@NotNull final Bedwars plugin, final int id, @NotNull final Location spawn) {
+	public Arena(@NotNull final Bedwars plugin, final int id, @NotNull final HashMap<Team, Location> spawns, @NotNull final HashMap<Team, BedLocation> bedLocations, final double voidLevel) {
 		this.plugin = plugin;
 
 		this.id = id;
-		this.spawn = spawn;
 
-		this.game = new Game(this);
+		this.spawns = spawns;
+		this.bedLocations = bedLocations;
+
+		this.voidLevel = voidLevel;
+
+		this.game = new Game(plugin, this);
 		this.countdown = new Countdown(plugin, this);
 	}
 
@@ -44,7 +53,8 @@ public final class Arena {
 		countdown.cancel();
 
 		countdown = new Countdown(plugin, this);
-		game = new Game(this);
+		game.cancelTasks();
+		game = new Game(plugin, this);
 
 		if (kickPlayers) {
 			final Location location = ConfigurationUtility.getLobbySpawn();
@@ -69,15 +79,6 @@ public final class Arena {
 		}
 	}
 
-	public void sendTitle(@NotNull final String title, @NotNull final String subtitle) {
-		for (final UUID uuid : players) {
-			final Player player = Bukkit.getPlayer(uuid);
-			assert player != null;
-
-			player.sendTitle(title, subtitle, 10, 10, 10);
-		}
-	}
-
 	public void sendTitle(@NotNull final String title) {
 		for (final UUID uuid : players) {
 			final Player player = Bukkit.getPlayer(uuid);
@@ -89,8 +90,6 @@ public final class Arena {
 
 	public void addPlayer(@NotNull final Player player) {
 		players.add(player.getUniqueId());
-
-		player.teleport(spawn);
 
 		if (state == GameState.WAITING && players.size() >= ConfigurationUtility.getMinPlayers()) {
 			countdown.start();
@@ -120,8 +119,24 @@ public final class Arena {
 		return id;
 	}
 
+	public double getVoidLevel() {
+		return voidLevel;
+	}
+
+	public HashMap<Team, Location> getSpawns() {
+		return spawns;
+	}
+
+	public HashMap<Team, BedLocation> getBedLocations() {
+		return bedLocations;
+	}
+
 	public GameState getState() {
 		return state;
+	}
+
+	public void setState(@NotNull final GameState state) {
+		this.state = state;
 	}
 
 	public List<UUID> getPlayers() {
@@ -130,9 +145,5 @@ public final class Arena {
 
 	public Game getGame() {
 		return game;
-	}
-
-	public void setState(@NotNull final GameState state) {
-		this.state = state;
 	}
 }

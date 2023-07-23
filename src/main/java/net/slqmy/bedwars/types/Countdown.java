@@ -1,8 +1,8 @@
-package net.slqmy.block_muncher.types;
+package net.slqmy.bedwars.types;
 
-import net.slqmy.block_muncher.Bedwars;
-import net.slqmy.block_muncher.enums.GameState;
-import net.slqmy.block_muncher.utility.ConfigurationUtility;
+import net.slqmy.bedwars.Bedwars;
+import net.slqmy.bedwars.enums.GameState;
+import net.slqmy.bedwars.utility.ConfigurationUtility;
 import org.bukkit.ChatColor;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
@@ -38,8 +38,8 @@ public final class Countdown extends BukkitRunnable {
 		if (countdownSeconds <= 10 || countdownSeconds % 15 == 0) {
 			arena.sendTitle(ChatColor.YELLOW.toString() + countdownSeconds);
 			arena.sendMessage(
-					ChatColor.YELLOW + "The game will start in " + ChatColor.RED + countdownSeconds
-							+ ChatColor.YELLOW + " second" + (countdownSeconds == 1 ? "" : "s") + ".");
+							ChatColor.YELLOW + "The game will start in " + ChatColor.RED + countdownSeconds
+											+ ChatColor.YELLOW + " second" + (countdownSeconds == 1 ? "" : "s") + ".");
 		}
 
 		countdownSeconds--;
