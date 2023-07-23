@@ -1,0 +1,26 @@
+min-players: 2
+
+countdown-seconds: 15
+
+lobby-spawn:
+  world-name: world
+  x:
+  y:
+  z:
+  yaw: -180
+  pitch: 0
+arenas:
+  0:
+    world-name: world
+    x:
+    y:
+    z:
+    yaw: -180
+    pitch: 0
+  1:
+    world-name: world
+    x:
+    y:
+    z:
+    yaw: -180
+    pitch: 0

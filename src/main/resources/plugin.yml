@@ -1,0 +1,7 @@
+name: Block-Muncher
+version: "${project.version}"
+main: net.slqmy.block_muncher.BlockMuncher
+api-version: "1.20"
+prefix: Block-Muncher
+authors: [slqmy]
+description: A minigame plugin where the goal is to eat as many blocks as possible, as fast as possible!
