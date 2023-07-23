@@ -9,7 +9,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class BlockMuncher extends JavaPlugin {
+public final class Bedwars extends JavaPlugin {
 	private static final PluginManager PLUGIN_MANAGER = Bukkit.getPluginManager();
 
 	private ArenaManager arenaManager;

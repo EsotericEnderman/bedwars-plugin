@@ -1,6 +1,6 @@
 package net.slqmy.block_muncher.types;
 
-import net.slqmy.block_muncher.BlockMuncher;
+import net.slqmy.block_muncher.Bedwars;
 import net.slqmy.block_muncher.enums.GameState;
 import net.slqmy.block_muncher.utility.ConfigurationUtility;
 import org.bukkit.Bukkit;
@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.UUID;
 
 public final class Arena {
-	private final BlockMuncher plugin;
+	private final Bedwars plugin;
 
 	private final int id;
 	private final Location spawn;
@@ -24,7 +24,7 @@ public final class Arena {
 	private Game game;
 	private Countdown countdown;
 
-	public Arena(@NotNull final BlockMuncher plugin, final int id, @NotNull final Location spawn) {
+	public Arena(@NotNull final Bedwars plugin, final int id, @NotNull final Location spawn) {
 		this.plugin = plugin;
 
 		this.id = id;

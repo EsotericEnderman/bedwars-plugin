@@ -1,7 +1,7 @@
-name: Block-Muncher
+name: Bedwars
 version: "${project.version}"
-main: net.slqmy.block_muncher.BlockMuncher
+main: net.slqmy.block_muncher.Bedwars
 api-version: "1.20"
-prefix: Block-Muncher
+prefix: Bedwars
 authors: [slqmy]
-description: A minigame plugin where the goal is to eat as many blocks as possible, as fast as possible!
+description: A very simple bedwars plugin project.

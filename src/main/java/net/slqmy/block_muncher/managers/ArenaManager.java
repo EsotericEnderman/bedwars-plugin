@@ -1,6 +1,6 @@
 package net.slqmy.block_muncher.managers;
 
-import net.slqmy.block_muncher.BlockMuncher;
+import net.slqmy.block_muncher.Bedwars;
 import net.slqmy.block_muncher.types.Arena;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -16,7 +16,7 @@ import java.util.UUID;
 public final class ArenaManager {
 	private final List<Arena> arenas = new ArrayList<>();
 
-	public ArenaManager(@NotNull final BlockMuncher plugin) {
+	public ArenaManager(@NotNull final Bedwars plugin) {
 		final FileConfiguration config = plugin.getConfig();
 		final ConfigurationSection arenasList = config.getConfigurationSection("arenas");
 		assert arenasList != null;

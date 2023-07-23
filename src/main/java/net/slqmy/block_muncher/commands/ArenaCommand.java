@@ -1,6 +1,6 @@
 package net.slqmy.block_muncher.commands;
 
-import net.slqmy.block_muncher.BlockMuncher;
+import net.slqmy.block_muncher.Bedwars;
 import net.slqmy.block_muncher.enums.GameState;
 import net.slqmy.block_muncher.types.Arena;
 import net.slqmy.block_muncher.types.AbstractCommand;
@@ -14,9 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class ArenaCommand extends AbstractCommand {
-	private final BlockMuncher plugin;
+	private final Bedwars plugin;
 
-	public ArenaCommand(@NotNull final BlockMuncher plugin) {
+	public ArenaCommand(@NotNull final Bedwars plugin) {
 		super(
 				"arena",
 				"Join or leave a minigame arena and see all the active arenas.",

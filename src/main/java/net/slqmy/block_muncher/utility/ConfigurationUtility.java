@@ -1,6 +1,6 @@
 package net.slqmy.block_muncher.utility;
 
-import net.slqmy.block_muncher.BlockMuncher;
+import net.slqmy.block_muncher.Bedwars;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 public final class ConfigurationUtility {
 	private static FileConfiguration config;
 
-	public static void setUpConfig(@NotNull final BlockMuncher plugin) {
+	public static void setUpConfig(@NotNull final Bedwars plugin) {
 		config = plugin.getConfig();
 		plugin.saveDefaultConfig();
 	}

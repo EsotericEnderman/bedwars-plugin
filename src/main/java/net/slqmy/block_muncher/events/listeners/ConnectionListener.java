@@ -1,6 +1,6 @@
 package net.slqmy.block_muncher.events.listeners;
 
-import net.slqmy.block_muncher.BlockMuncher;
+import net.slqmy.block_muncher.Bedwars;
 import net.slqmy.block_muncher.types.Arena;
 import net.slqmy.block_muncher.utility.ConfigurationUtility;
 import org.bukkit.entity.Player;
@@ -11,9 +11,9 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.jetbrains.annotations.NotNull;
 
 public final class ConnectionListener implements Listener {
-	private final BlockMuncher plugin;
+	private final Bedwars plugin;
 
-	public ConnectionListener(@NotNull final BlockMuncher plugin) {
+	public ConnectionListener(@NotNull final Bedwars plugin) {
 		this.plugin = plugin;
 	}
 

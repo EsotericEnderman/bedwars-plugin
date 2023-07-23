@@ -1,6 +1,6 @@
 package net.slqmy.block_muncher.types;
 
-import net.slqmy.block_muncher.BlockMuncher;
+import net.slqmy.block_muncher.Bedwars;
 import net.slqmy.block_muncher.enums.GameState;
 import net.slqmy.block_muncher.utility.ConfigurationUtility;
 import org.bukkit.ChatColor;
@@ -8,12 +8,12 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
 
 public final class Countdown extends BukkitRunnable {
-	private final BlockMuncher plugin;
+	private final Bedwars plugin;
 	private final Arena arena;
 
 	private int countdownSeconds;
 
-	public Countdown(@NotNull final BlockMuncher plugin, @NotNull final Arena arena) {
+	public Countdown(@NotNull final Bedwars plugin, @NotNull final Arena arena) {
 		this.plugin = plugin;
 		this.arena = arena;
 
