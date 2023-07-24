@@ -119,7 +119,7 @@ public final class Game {
 			arena.sendMessage(team.getColour() + noob.getName() + ChatColor.YELLOW + " died!");
 		} else {
 			noob.teleport(ConfigurationUtility.getLobbySpawn());
-			arena.sendMessage(team.getName() + noob.getName() + ChatColor.YELLOW + " has been eliminated!");
+			arena.sendMessage(team.getColour() + noob.getName() + ChatColor.YELLOW + " has been eliminated!");
 
 			alive.remove(noob.getUniqueId());
 		}
