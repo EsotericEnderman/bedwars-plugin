@@ -72,6 +72,36 @@ public final class Arena {
 		}
 	}
 
+	public void addPlayer(@NotNull final Player player) {
+		players.add(player.getUniqueId());
+
+		player.teleport(spawn);
+		player.getInventory().clear();
+
+		if (state == GameState.WAITING && players.size() >= ConfigurationUtility.getRequiredPlayers()) {
+			countdown.start();
+		}
+	}
+
+	public void removePlayer(@NotNull final Player player) {
+		players.remove(player.getUniqueId());
+		player.teleport(ConfigurationUtility.getLobbySpawn());
+		player.getInventory().clear();
+
+		if (players.size() < ConfigurationUtility.getRequiredPlayers()) {
+			if (state == GameState.COUNTDOWN) {
+				reset(false);
+
+				sendMessage(ChatColor.RED + "There are not enough players! Countdown cancelled.");
+				sendTitle(ChatColor.RED + "Countdown cancelled!");
+			} else if (state == GameState.PLAYING) {
+				reset(false);
+
+				sendMessage(ChatColor.RED + "The game has ended because too many players have left.");
+			}
+		}
+	}
+
 	public void sendMessage(@NotNull final String message) {
 		for (final UUID uuid : players) {
 			final Player player = Bukkit.getPlayer(uuid);
@@ -88,35 +118,6 @@ public final class Arena {
 
 			player.sendTitle(title, "", 10, 10, 10);
 		}
-	}
-
-	public void addPlayer(@NotNull final Player player) {
-		players.add(player.getUniqueId());
-
-		player.teleport(spawn);
-
-		if (state == GameState.WAITING && players.size() >= ConfigurationUtility.getRequiredPlayers()) {
-			countdown.start();
-		}
-	}
-
-	public void removePlayer(@NotNull final Player player) {
-		players.remove(player.getUniqueId());
-
-		if (players.size() < ConfigurationUtility.getRequiredPlayers()) {
-			if (state == GameState.COUNTDOWN) {
-				reset(false);
-
-				sendMessage(ChatColor.RED + "There are not enough players! Countdown cancelled.");
-				sendTitle(ChatColor.RED + "Countdown cancelled!");
-			} else if (state == GameState.PLAYING) {
-				reset(false);
-
-				sendMessage(ChatColor.RED + "The game has ended because too many players have left.");
-			}
-		}
-
-		player.teleport(ConfigurationUtility.getLobbySpawn());
 	}
 
 	public int getID() {
