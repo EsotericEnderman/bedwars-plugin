@@ -41,7 +41,7 @@ public final class ArenaCommand extends AbstractCommand {
 
 				for (final Arena arena : plugin.getArenaManager().getArenas()) {
 					player.sendMessage(
-									ChatColor.DARK_GRAY + "• " + ChatColor.RESET + "Arena " + ChatColor.UNDERLINE + arena.getID() + "\n"
+									ChatColor.DARK_GRAY + "• " + ChatColor.RESET + "Arena " + ChatColor.UNDERLINE + arena.getID() + ChatColor.RESET + "\n"
 													+ ChatColor.GRAY + " - " + ChatColor.RESET + "State: " + arena.getState().getName() + "\n"
 													+ ChatColor.GRAY + " - " + ChatColor.RESET + "Players: " + ChatColor.YELLOW + ChatColor.UNDERLINE
 													+ arena.getPlayers().size() + "\n "
