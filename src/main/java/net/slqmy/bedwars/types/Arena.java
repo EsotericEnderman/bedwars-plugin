@@ -97,7 +97,7 @@ public final class Arena {
 				sendMessage(ChatColor.RED + "There are not enough players! Countdown cancelled.");
 				sendTitle(ChatColor.RED + "Countdown cancelled!");
 			} else if (state == GameState.PLAYING) {
-				reset(false);
+				reset(true);
 
 				sendMessage(ChatColor.RED + "The game has ended because too many players have left.");
 			}
