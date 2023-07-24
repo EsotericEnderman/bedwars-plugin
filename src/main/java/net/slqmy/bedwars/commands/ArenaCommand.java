@@ -55,7 +55,7 @@ public final class ArenaCommand extends AbstractCommand {
 					return true;
 				}
 
-				player.sendMessage(ChatColor.GREEN + "You have left arena " + ChatColor.YELLOW + "#" + ChatColor.UNDERLINE + arena.getID() + ChatColor.GREEN + ".");
+				player.sendMessage(ChatColor.GREEN + "You have left arena " + ChatColor.YELLOW + ChatColor.UNDERLINE + "#" + arena.getID() + ChatColor.GREEN + ".");
 
 				arena.removePlayer(player);
 			} else {
