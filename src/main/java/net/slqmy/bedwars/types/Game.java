@@ -13,7 +13,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.scheduler.BukkitTask;
-import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -38,7 +37,7 @@ public final class Game {
 	public void start() {
 		arena.setState(GameState.PLAYING);
 		arena.sendTitle(ChatColor.GREEN.toString() + ChatColor.BOLD + "GO!");
-		arena.sendMessage(ChatColor.GREEN + "Break other players' beds and kill them to win!");
+		arena.sendMessage(ChatColor.DARK_GRAY + " \n| " + ChatColor.GREEN + "Break other players' beds and kill them to win!\n ");
 
 		for (int i = 0; i < arena.getPlayers().size(); i++) {
 			final UUID uuid = arena.getPlayers().get(i);
@@ -56,6 +55,8 @@ public final class Game {
 
 				data.setPart(bedPart);
 				data.setFacing(bedLocation.getFacing());
+
+				block.setBlockData(data);
 
 				block.setMetadata("team", new FixedMetadataValue(plugin, team.name()));
 				block = block.getRelative(bedLocation.getFacing().getOppositeFace());
@@ -86,7 +87,7 @@ public final class Game {
 				assert player != null;
 
 				if (player.getLocation().getY() <= arena.getVoidLevel()) {
-					player.setVelocity(new Vector(0, 0, 0));
+					player.setFallDistance(0);
 					handleDeath(player);
 				}
 			}
@@ -94,11 +95,17 @@ public final class Game {
 	}
 
 	public boolean destroyBed(@NotNull final Team team, @NotNull final Player breaker) {
+		final Team breakerTeam = teams.get(breaker.getUniqueId());
+
 		if (teams.get(breaker.getUniqueId()).equals(team)) {
 			return false;
 		}
 
-		arena.sendMessage(breaker.getName() + " has broken " + team.getName() + " team's bed!");
+		arena.sendMessage(
+						ChatColor.DARK_GRAY + " \n| " + breakerTeam.getColour() + breaker.getName()
+						+ ChatColor.YELLOW + " has broken " + team.getColour() + team.getName() + " bed" + ChatColor.YELLOW + "!\n "
+		);
+
 		bedsAlive.replace(team, false);
 
 		return true;
@@ -109,16 +116,25 @@ public final class Game {
 
 		if (bedsAlive.get(team)) {
 			noob.teleport(arena.getSpawns().get(team));
-			arena.sendMessage(noob.getName() + " died!");
+			arena.sendMessage(team.getColour() + noob.getName() + ChatColor.YELLOW + " died!");
 		} else {
 			noob.teleport(ConfigurationUtility.getLobbySpawn());
-			arena.sendMessage(noob.getName() + " has been eliminated!");
+			arena.sendMessage(team.getName() + noob.getName() + ChatColor.YELLOW + " has been eliminated!");
+
+			alive.remove(noob.getUniqueId());
 		}
 
-		alive.remove(noob.getUniqueId());
-
 		if (alive.size() == 1) {
-			arena.sendMessage(Bukkit.getPlayer(alive.get(0)).getName() + " has won!");
+			final Player pro = Bukkit.getPlayer(alive.get(0));
+			assert pro != null;
+
+			final Team proTeam = teams.get(pro.getUniqueId());
+
+			arena.sendMessage(proTeam.getColour() + pro.getName() + ChatColor.YELLOW + " has won!");
+
+			arena.sendTitle(ChatColor.RED.toString() + ChatColor.BOLD + "GAME OVER!");
+			pro.sendTitle(ChatColor.GOLD.toString() + ChatColor.BOLD + "VICTORY!", "", 20, 20, 20);
+
 			arena.reset(true);
 		}
 	}

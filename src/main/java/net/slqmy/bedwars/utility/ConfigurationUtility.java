@@ -14,7 +14,7 @@ public final class ConfigurationUtility {
 		plugin.saveDefaultConfig();
 	}
 
-	public static int getMinPlayers() {
+	public static int getRequiredPlayers() {
 		return config.getInt("required-players");
 	}
 

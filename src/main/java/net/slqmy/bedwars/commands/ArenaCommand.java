@@ -37,18 +37,18 @@ public final class ArenaCommand extends AbstractCommand {
 
 		if (args.length == 1) {
 			if ("list".equalsIgnoreCase(args[0])) {
-				player.sendMessage(" \n" + ChatColor.UNDERLINE + "Active Arenas:\n ");
+				player.sendMessage(" \n" + ChatColor.UNDERLINE + "Active Arenas:\n" + ChatColor.RESET + " ");
 
 				for (final Arena arena : plugin.getArenaManager().getArenas()) {
 					player.sendMessage(
-									ChatColor.DARK_GRAY + "• " + ChatColor.RESET + "Arena " + ChatColor.UNDERLINE + arena.getID() + ChatColor.RESET + "\n"
+									ChatColor.DARK_GRAY + "• " + ChatColor.RESET + "Arena " + ChatColor.UNDERLINE + arena.getID() + "\n"
 													+ ChatColor.GRAY + " - " + ChatColor.RESET + "State: " + arena.getState().getName() + "\n"
 													+ ChatColor.GRAY + " - " + ChatColor.RESET + "Players: " + ChatColor.YELLOW + ChatColor.UNDERLINE
-													+ arena.getPlayers().size() + "\n "
+													+ arena.getPlayers().size() + "\n" + ChatColor.RESET + " "
 					);
 				}
 			} else if ("leave".equalsIgnoreCase(args[0])) {
-				final Arena arena = plugin.getArenaManager().getArena(player.getUniqueId());
+				final Arena arena = plugin.getArenaManager().getArena(player);
 
 				if (arena == null) {
 					player.sendMessage(ChatColor.RED + "You are not in an arena!");
@@ -63,7 +63,7 @@ public final class ArenaCommand extends AbstractCommand {
 			}
 		} else if (args.length == 2) {
 			if ("join".equalsIgnoreCase(args[0])) {
-				final Arena playerArena = plugin.getArenaManager().getArena(player.getUniqueId());
+				final Arena playerArena = plugin.getArenaManager().getArena(player);
 
 				if (playerArena != null) {
 					player.sendMessage(ChatColor.RED + "You are already in an arena! Use " + ChatColor.UNDERLINE + "/arena leave" + ChatColor.RED + " to leave.");
@@ -92,7 +92,7 @@ public final class ArenaCommand extends AbstractCommand {
 					return true;
 				}
 
-				if (arena.getPlayers().size() == ConfigurationUtility.getMinPlayers()) {
+				if (arena.getPlayers().size() == ConfigurationUtility.getRequiredPlayers()) {
 					player.sendMessage(ChatColor.RED + "That arena is full, sorry!");
 					return true;
 				}

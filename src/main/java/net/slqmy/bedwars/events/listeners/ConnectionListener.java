@@ -26,7 +26,7 @@ public final class ConnectionListener implements Listener {
 	public void onPlayerQuit(@NotNull final PlayerQuitEvent event) {
 		final Player player = event.getPlayer();
 
-		final Arena arena = plugin.getArenaManager().getArena(player.getUniqueId());
+		final Arena arena = plugin.getArenaManager().getArena(player);
 
 		if (arena != null) {
 			arena.removePlayer(player);

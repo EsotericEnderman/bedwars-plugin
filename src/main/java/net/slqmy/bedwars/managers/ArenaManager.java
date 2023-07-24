@@ -10,13 +10,13 @@ import org.bukkit.World;
 import org.bukkit.block.BlockFace;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
 
 public final class ArenaManager {
 	private final List<Arena> arenas = new ArrayList<>();
@@ -66,12 +66,15 @@ public final class ArenaManager {
 				);
 			}
 
+			final String spawnWorldName = config.getString("arenas." + arenaKey + ".spawn.world-name");
+			assert spawnWorldName != null;
+
 			arenas.add(
 							new Arena(
 											plugin,
 											Integer.parseInt(arenaKey),
 											new Location(
-															Bukkit.getWorld("arenas." + arenaKey + ".spawn.world-name"),
+															Bukkit.getWorld(spawnWorldName),
 															config.getDouble("arenas." + arenaKey + ".spawn.x"),
 															config.getDouble("arenas." + arenaKey + ".spawn.y"),
 															config.getDouble("arenas." + arenaKey + ".spawn.z"),
@@ -91,9 +94,9 @@ public final class ArenaManager {
 		return arenas;
 	}
 
-	public @Nullable Arena getArena(@NotNull final UUID uuid) {
+	public @Nullable Arena getArena(@NotNull final Player player) {
 		for (final Arena arena : arenas) {
-			if (arena.getPlayers().contains(uuid)) {
+			if (arena.getPlayers().contains(player.getUniqueId())) {
 				return arena;
 			}
 		}

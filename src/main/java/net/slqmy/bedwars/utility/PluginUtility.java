@@ -20,8 +20,7 @@ public final class PluginUtility {
 	}
 
 	@NotNull
-	public static String replaceAll(@NotNull final String input, @NotNull final Pattern pattern,
-	                                @NotNull final String replaceString) {
+	public static String replaceAll(@NotNull final String input, @NotNull final Pattern pattern, @NotNull final String replaceString) {
 		final Matcher matcher = pattern.matcher(input);
 		return matcher.replaceAll(replaceString);
 	}

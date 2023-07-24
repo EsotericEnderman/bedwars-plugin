@@ -25,9 +25,7 @@ public abstract class AbstractCommand extends BukkitCommand {
 	private final String permission;
 	private final boolean playerOnly;
 
-	public AbstractCommand(@NotNull final String name, @NotNull final String description, @NotNull final String usage,
-	                       final Integer @NotNull [] argLengths,
-	                       final String @NotNull [] aliases, @NotNull final String permission, final boolean playerOnly) {
+	public AbstractCommand(@NotNull final String name, @NotNull final String description, @NotNull final String usage, final Integer @NotNull [] argLengths, final String @NotNull [] aliases, @NotNull final String permission, final boolean playerOnly) {
 		super(name);
 		this.name = name;
 

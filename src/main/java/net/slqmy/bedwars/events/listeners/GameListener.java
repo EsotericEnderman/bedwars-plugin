@@ -26,7 +26,7 @@ public final class GameListener implements Listener {
 
 	@EventHandler
 	public void onBlockBreak(@NotNull final BlockBreakEvent event) {
-		final Arena arena = plugin.getArenaManager().getArena(event.getPlayer().getUniqueId());
+		final Arena arena = plugin.getArenaManager().getArena(event.getPlayer());
 
 		if (arena != null && arena.getState() == GameState.PLAYING) {
 			final Game game = arena.getGame();
@@ -46,7 +46,7 @@ public final class GameListener implements Listener {
 	@EventHandler
 	public void onPlayerDeath(@NotNull final PlayerDeathEvent event) {
 		final Player player = event.getEntity();
-		final Arena arena = plugin.getArenaManager().getArena(player.getUniqueId());
+		final Arena arena = plugin.getArenaManager().getArena(player);
 
 		if (arena != null && arena.getState() == GameState.PLAYING) {
 			arena.getGame().handleDeath(player);
@@ -55,7 +55,7 @@ public final class GameListener implements Listener {
 
 	@EventHandler
 	public void onPlayerRespawn(@NotNull final PlayerRespawnEvent event) {
-		final Arena arena = plugin.getArenaManager().getArena(event.getPlayer().getUniqueId());
+		final Arena arena = plugin.getArenaManager().getArena(event.getPlayer());
 
 		if (arena != null && arena.getState() == GameState.PLAYING) {
 			event.setRespawnLocation(arena.getGame().getRespawnLocation(event.getPlayer()));

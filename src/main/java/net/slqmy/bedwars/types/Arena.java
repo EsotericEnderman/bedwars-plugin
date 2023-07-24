@@ -95,7 +95,7 @@ public final class Arena {
 
 		player.teleport(spawn);
 
-		if (state == GameState.WAITING && players.size() >= ConfigurationUtility.getMinPlayers()) {
+		if (state == GameState.WAITING && players.size() >= ConfigurationUtility.getRequiredPlayers()) {
 			countdown.start();
 		}
 	}
@@ -103,7 +103,7 @@ public final class Arena {
 	public void removePlayer(@NotNull final Player player) {
 		players.remove(player.getUniqueId());
 
-		if (players.size() < ConfigurationUtility.getMinPlayers()) {
+		if (players.size() < ConfigurationUtility.getRequiredPlayers()) {
 			if (state == GameState.COUNTDOWN) {
 				reset(false);
 

@@ -20,6 +20,8 @@ public final class Bedwars extends JavaPlugin {
 		// as the arena manager relies heavily on the config.yml file.
 		ConfigurationUtility.setUpConfig(this);
 
+		// Todo: add a scoreboard, boss bar, tab list, sidebar, and coloured messages.
+
 		arenaManager = new ArenaManager(this);
 
 		PLUGIN_MANAGER.registerEvents(new ConnectionListener(this), this);

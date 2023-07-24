@@ -22,8 +22,6 @@ arenas:
       pitch: 0
     teams:
       red:
-        name: Red
-        colour: "&c"
         spawn:
           x: -4
           y: 116
@@ -36,8 +34,6 @@ arenas:
           z: 25
           facing: east
       yellow:
-        name: Yellow
-        colour: "&e"
         spawn:
           x: -39
           y: 116
@@ -50,8 +46,6 @@ arenas:
           z: 25
           facing: west
       green:
-        name: Green
-        colour: "&a"
         spawn:
           x: -39
           y: 116
@@ -64,8 +58,6 @@ arenas:
           z: 57
           facing: west
       blue:
-        name: Blue
-        colour: "&9"
         spawn:
           x: -4
           y: 116
