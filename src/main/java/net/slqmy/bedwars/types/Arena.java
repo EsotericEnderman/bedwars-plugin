@@ -20,6 +20,7 @@ public final class Arena {
 	private final Bedwars plugin;
 
 	private final int id;
+	private final Location spawn;
 	private final HashMap<Team, Location> spawns;
 	private final HashMap<Team, BedLocation> bedLocations;
 	private final double voidLevel;
@@ -29,11 +30,12 @@ public final class Arena {
 	private Game game;
 	private Countdown countdown;
 
-	public Arena(@NotNull final Bedwars plugin, final int id, @NotNull final HashMap<Team, Location> spawns, @NotNull final HashMap<Team, BedLocation> bedLocations, final double voidLevel) {
+	public Arena(@NotNull final Bedwars plugin, final int id, @NotNull final Location spawn, @NotNull final HashMap<Team, Location> spawns, @NotNull final HashMap<Team, BedLocation> bedLocations, final double voidLevel) {
 		this.plugin = plugin;
 
 		this.id = id;
 
+		this.spawn = spawn;
 		this.spawns = spawns;
 		this.bedLocations = bedLocations;
 
@@ -90,6 +92,8 @@ public final class Arena {
 
 	public void addPlayer(@NotNull final Player player) {
 		players.add(player.getUniqueId());
+
+		player.teleport(spawn);
 
 		if (state == GameState.WAITING && players.size() >= ConfigurationUtility.getMinPlayers()) {
 			countdown.start();

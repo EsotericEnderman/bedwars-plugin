@@ -13,6 +13,13 @@ arenas:
   1:
     world-name: world
     void-level: 20
+    spawn:
+      world-name: world
+      x: -33
+      y: 116
+      z: 10
+      yaw: 0
+      pitch: 0
     teams:
       red:
         name: Red
@@ -27,7 +34,7 @@ arenas:
           x: -3
           y: 116
           z: 25
-          facing: west
+          facing: east
       yellow:
         name: Yellow
         colour: "&e"
@@ -41,7 +48,7 @@ arenas:
           x: -40
           y: 116
           z: 25
-          facing: east
+          facing: west
       green:
         name: Green
         colour: "&a"
@@ -55,7 +62,7 @@ arenas:
           x: -39
           y: 116
           z: 57
-          facing: east
+          facing: west
       blue:
         name: Blue
         colour: "&9"
@@ -69,4 +76,4 @@ arenas:
           x: -3
           y: 116
           z: 57
-          facing: west
+          facing: east

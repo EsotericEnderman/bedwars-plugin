@@ -70,6 +70,15 @@ public final class ArenaManager {
 							new Arena(
 											plugin,
 											Integer.parseInt(arenaKey),
+											new Location(
+															Bukkit.getWorld("arenas." + arenaKey + ".spawn.world-name"),
+															config.getDouble("arenas." + arenaKey + ".spawn.x"),
+															config.getDouble("arenas." + arenaKey + ".spawn.y"),
+															config.getDouble("arenas." + arenaKey + ".spawn.z"),
+															(float) config.getDouble("arenas." + arenaKey + ".spawn.yaw"),
+															(float) config.getDouble("arenas." + arenaKey + ".spawn.pitch")
+
+											),
 											spawns,
 											bedLocations,
 											config.getDouble("arenas." + arenaKey + ".void-level")
