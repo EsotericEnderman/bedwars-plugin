@@ -78,6 +78,8 @@ public final class Arena {
 		player.teleport(spawn);
 		player.getInventory().clear();
 
+		player.sendTitle("", "", 0, 0, 0);
+
 		if (state == GameState.WAITING && players.size() >= ConfigurationUtility.getRequiredPlayers()) {
 			countdown.start();
 		}
