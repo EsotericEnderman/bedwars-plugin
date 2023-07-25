@@ -20,7 +20,7 @@ public final class Arena {
 	private final Bedwars plugin;
 
 	private final int id;
-	private final Location spawn;
+	private final Location spawnLocation;
 	private final HashMap<Team, Location> spawns;
 	private final HashMap<Team, BedLocation> bedLocations;
 	private final double voidLevel;
@@ -35,7 +35,7 @@ public final class Arena {
 
 		this.id = id;
 
-		this.spawn = spawn;
+		this.spawnLocation = spawnLocation;
 		this.spawns = spawns;
 		this.bedLocations = bedLocations;
 
@@ -75,7 +75,7 @@ public final class Arena {
 	public void addPlayer(@NotNull final Player player) {
 		players.add(player.getUniqueId());
 
-		player.teleport(spawn);
+		player.teleport(spawnLocation);
 		player.getInventory().clear();
 
 		player.sendTitle("", "", 0, 0, 0);

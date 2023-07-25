@@ -13,7 +13,7 @@ arenas:
   1:
     world-name: world
     void-level: 20
-    spawn:
+    spawn-location:
       world-name: world
       x: -33
       y: 116
@@ -22,7 +22,7 @@ arenas:
       pitch: 0
     teams:
       red:
-        spawn:
+        spawn-location:
           x: -4
           y: 116
           z: 25
@@ -34,7 +34,7 @@ arenas:
           z: 25
           facing: east
       yellow:
-        spawn:
+        spawn-location:
           x: -39
           y: 116
           z: 25
@@ -46,7 +46,7 @@ arenas:
           z: 25
           facing: west
       green:
-        spawn:
+        spawn-location:
           x: -39
           y: 116
           z: 57
@@ -58,7 +58,7 @@ arenas:
           z: 57
           facing: west
       blue:
-        spawn:
+        spawn-location:
           x: -4
           y: 116
           z: 57

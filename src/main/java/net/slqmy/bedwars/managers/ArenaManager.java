@@ -43,11 +43,11 @@ public final class ArenaManager {
 								Team.valueOf(team.toUpperCase()),
 								new Location(
 												world,
-												config.getDouble("arenas." + arenaKey + ".teams." + team + ".spawn.x"),
-												config.getDouble("arenas." + arenaKey + ".teams." + team + ".spawn.y"),
-												config.getDouble("arenas." + arenaKey + ".teams." + team + ".spawn.z"),
-												(float) config.getDouble("arenas." + arenaKey + ".teams." + team + ".spawn.yaw"),
-												(float) config.getDouble("arenas." + arenaKey + ".teams." + team + ".spawn.pitch")
+												config.getDouble("arenas." + arenaKey + ".teams." + team + ".spawn-location.x"),
+												config.getDouble("arenas." + arenaKey + ".teams." + team + ".spawn-location.y"),
+												config.getDouble("arenas." + arenaKey + ".teams." + team + ".spawn-location.z"),
+												(float) config.getDouble("arenas." + arenaKey + ".teams." + team + ".spawn-location.yaw"),
+												(float) config.getDouble("arenas." + arenaKey + ".teams." + team + ".spawn-location.pitch")
 								)
 				);
 
@@ -66,7 +66,7 @@ public final class ArenaManager {
 				);
 			}
 
-			final String spawnWorldName = config.getString("arenas." + arenaKey + ".spawn.world-name");
+			final String spawnWorldName = config.getString("arenas." + arenaKey + ".spawn-location.world-name");
 			assert spawnWorldName != null;
 
 			arenas.add(
@@ -75,11 +75,11 @@ public final class ArenaManager {
 											Integer.parseInt(arenaKey),
 											new Location(
 															Bukkit.getWorld(spawnWorldName),
-															config.getDouble("arenas." + arenaKey + ".spawn.x"),
-															config.getDouble("arenas." + arenaKey + ".spawn.y"),
-															config.getDouble("arenas." + arenaKey + ".spawn.z"),
-															(float) config.getDouble("arenas." + arenaKey + ".spawn.yaw"),
-															(float) config.getDouble("arenas." + arenaKey + ".spawn.pitch")
+															config.getDouble("arenas." + arenaKey + ".spawn-location.x"),
+															config.getDouble("arenas." + arenaKey + ".spawn-location.y"),
+															config.getDouble("arenas." + arenaKey + ".spawn-location.z"),
+															(float) config.getDouble("arenas." + arenaKey + ".spawn-location.yaw"),
+															(float) config.getDouble("arenas." + arenaKey + ".spawn-location.pitch")
 
 											),
 											spawns,
