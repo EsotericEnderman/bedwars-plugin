@@ -20,6 +20,13 @@ arenas:
       z: 10
       yaw: 0
       pitch: 0
+    npc-location:
+      world-name: world
+      x: 0
+      y: 117
+      z: 13
+      yaw: -180
+      pitch: 0
     teams:
       red:
         spawn-location:

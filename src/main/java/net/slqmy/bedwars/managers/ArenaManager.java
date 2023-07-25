@@ -17,6 +17,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 public final class ArenaManager {
 	private final List<Arena> arenas = new ArrayList<>();
@@ -69,6 +70,10 @@ public final class ArenaManager {
 			final String spawnWorldName = config.getString("arenas." + arenaKey + ".spawn-location.world-name");
 			assert spawnWorldName != null;
 
+			final String npcWorldName = config.getString("arenas.");
+			assert npcWorldName != null;
+
+			// Idea: make a utility method for this:
 			arenas.add(
 							new Arena(
 											plugin,
@@ -84,6 +89,14 @@ public final class ArenaManager {
 											),
 											spawns,
 											bedLocations,
+											new Location(
+															Bukkit.getWorld(npcWorldName),
+															config.getDouble("arenas." +  arenaKey + ".npc-location.x"),
+															config.getDouble("arenas." +  arenaKey + ".npc-location.y"),
+															config.getDouble("arenas." +  arenaKey + ".npc-location.z"),
+															(float) config.getDouble("arenas." +  arenaKey + ".npc-location.yaw"),
+															(float) config.getDouble("arenas." +  arenaKey + ".npc-location.pitch")
+											),
 											config.getDouble("arenas." + arenaKey + ".void-level")
 							)
 			);
@@ -107,6 +120,16 @@ public final class ArenaManager {
 	public @Nullable Arena getArena(final int id) {
 		for (final Arena arena : arenas) {
 			if (arena.getID() == id) {
+				return arena;
+			}
+		}
+
+		return null;
+	}
+
+	public @Nullable Arena getArena(final @NotNull UUID entityUUID) {
+		for (final Arena arena : arenas) {
+			if (arena.getVillager().getUniqueId().equals(entityUUID)) {
 				return arena;
 			}
 		}

@@ -14,10 +14,10 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class ArenaCommand extends AbstractCommand {
+public final class BedwarsCommand extends AbstractCommand {
 	private final Bedwars plugin;
 
-	public ArenaCommand(@NotNull final Bedwars plugin) {
+	public BedwarsCommand(@NotNull final Bedwars plugin) {
 		super(
 						"bedwars",
 						"Join or leave a bedwars arena and see all the active arenas.",

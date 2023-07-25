@@ -1,9 +1,10 @@
 package net.slqmy.bedwars;
 
-import net.slqmy.bedwars.commands.ArenaCommand;
+import net.slqmy.bedwars.commands.BedwarsCommand;
 import net.slqmy.bedwars.events.listeners.ConnectionListener;
 import net.slqmy.bedwars.events.listeners.GameListener;
 import net.slqmy.bedwars.managers.ArenaManager;
+import net.slqmy.bedwars.types.Arena;
 import net.slqmy.bedwars.utility.ConfigurationUtility;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
@@ -27,7 +28,14 @@ public final class Bedwars extends JavaPlugin {
 		PLUGIN_MANAGER.registerEvents(new ConnectionListener(this), this);
 		PLUGIN_MANAGER.registerEvents(new GameListener(this), this);
 
-		new ArenaCommand(this);
+		new BedwarsCommand(this);
+	}
+
+	@Override
+	public void onDisable() {
+		for (final Arena arena : arenaManager.getArenas()) {
+			arena.getVillager().remove();
+		}
 	}
 
 	public ArenaManager getArenaManager() {

@@ -5,13 +5,18 @@ import net.slqmy.bedwars.enums.GameState;
 import net.slqmy.bedwars.enums.Team;
 import net.slqmy.bedwars.types.Arena;
 import net.slqmy.bedwars.types.Game;
+import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.metadata.MetadataValue;
 import org.jetbrains.annotations.NotNull;
 
@@ -22,6 +27,21 @@ public final class GameListener implements Listener {
 
 	public GameListener(@NotNull final Bedwars plugin) {
 		this.plugin = plugin;
+	}
+
+	@EventHandler
+	public void onPlayerInteractAtEntity(@NotNull final PlayerInteractAtEntityEvent event) {
+		final Entity clickedEntity = event.getRightClicked();
+
+		if (event.getHand() == EquipmentSlot.OFF_HAND || clickedEntity.getType() != EntityType.VILLAGER) {
+			return;
+		}
+
+		final Arena arena = plugin.getArenaManager().getArena(clickedEntity.getUniqueId());
+
+		if (arena != null) {
+			Bukkit.dispatchCommand(event.getPlayer(), "bedwars join " + arena.getID());
+		}
 	}
 
 	@EventHandler

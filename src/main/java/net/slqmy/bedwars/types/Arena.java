@@ -8,7 +8,10 @@ import net.slqmy.bedwars.utility.types.BedLocation;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.World;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Villager;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -26,11 +29,13 @@ public final class Arena {
 	private final double voidLevel;
 	private final List<UUID> players = new ArrayList<>();
 
+	private final Villager villager;
+
 	private GameState state = GameState.WAITING;
 	private Game game;
 	private Countdown countdown;
 
-	public Arena(@NotNull final Bedwars plugin, final int id, @NotNull final Location spawn, @NotNull final HashMap<Team, Location> spawns, @NotNull final HashMap<Team, BedLocation> bedLocations, final double voidLevel) {
+	public Arena(@NotNull final Bedwars plugin, final int id, @NotNull final Location spawnLocation, @NotNull final HashMap<Team, Location> spawns, @NotNull final HashMap<Team, BedLocation> bedLocations, @NotNull final Location npcLocation, final double voidLevel) {
 		this.plugin = plugin;
 
 		this.id = id;
@@ -38,6 +43,19 @@ public final class Arena {
 		this.spawnLocation = spawnLocation;
 		this.spawns = spawns;
 		this.bedLocations = bedLocations;
+
+		final World world = npcLocation.getWorld();
+		assert world != null;
+		villager = (Villager) world.spawnEntity(npcLocation, EntityType.VILLAGER);
+
+		villager.setAI(false);
+		villager.setCollidable(false);
+		villager.setInvulnerable(true);
+
+		villager.setCustomNameVisible(true);
+		villager.setProfession(Villager.Profession.FARMER);
+
+		updateVillager();
 
 		this.voidLevel = voidLevel;
 
@@ -59,23 +77,29 @@ public final class Arena {
 		game = new Game(plugin, this);
 
 		if (kickPlayers) {
-			final Location location = ConfigurationUtility.getLobbySpawn();
+			final Location spawnLocation = ConfigurationUtility.getLobbySpawn();
 
 			for (final UUID uuid : players) {
 				final Player player = Bukkit.getPlayer(uuid);
 				assert player != null;
 
-				player.teleport(location);
+				player.teleport(spawnLocation);
+				player.getInventory().clear();
 			}
 
 			players.clear();
 		}
+
+		updateVillager();
 	}
 
 	public void addPlayer(@NotNull final Player player) {
 		players.add(player.getUniqueId());
 
 		player.teleport(spawnLocation);
+
+		updateVillager();
+
 		player.getInventory().clear();
 
 		player.sendTitle("", "", 0, 0, 0);
@@ -102,6 +126,8 @@ public final class Arena {
 				sendMessage(ChatColor.RED + "The game has ended because too many players have left.");
 			}
 		}
+
+		updateVillager();
 	}
 
 	public void sendMessage(@NotNull final String message) {
@@ -120,6 +146,12 @@ public final class Arena {
 
 			player.sendTitle(title, "", 10, 10, 10);
 		}
+	}
+
+	public void updateVillager() {
+		villager.setCustomName(
+						ChatColor.GOLD + "Bedwars Arena " + ChatColor.YELLOW + ChatColor.UNDERLINE + "#" + id + ChatColor.DARK_GRAY + " - " + ChatColor.GRAY + "(" + ChatColor.YELLOW + players.size() + ChatColor.GRAY + " players) " + ChatColor.DARK_GRAY + "- " + ChatColor.YELLOW + "Click to join!"
+		);
 	}
 
 	public int getID() {
@@ -148,6 +180,10 @@ public final class Arena {
 
 	public List<UUID> getPlayers() {
 		return players;
+	}
+
+	public Villager getVillager() {
+		return villager;
 	}
 
 	public Game getGame() {
