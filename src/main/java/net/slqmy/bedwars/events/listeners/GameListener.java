@@ -16,6 +16,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.event.world.WorldLoadEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.metadata.MetadataValue;
 import org.jetbrains.annotations.NotNull;
@@ -27,6 +28,15 @@ public final class GameListener implements Listener {
 
 	public GameListener(@NotNull final Bedwars plugin) {
 		this.plugin = plugin;
+	}
+
+	@EventHandler
+	public void onWorldLoad(@NotNull final WorldLoadEvent event) {
+		final Arena arena = plugin.getArenaManager().getArena(event.getWorld());
+
+		if (arena != null) {
+			arena.toggleIsWorldLoaded();
+		}
 	}
 
 	@EventHandler

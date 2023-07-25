@@ -135,7 +135,7 @@ public final class Game {
 			arena.sendTitle(ChatColor.RED.toString() + ChatColor.BOLD + "GAME OVER!");
 			pro.sendTitle(ChatColor.GOLD.toString() + ChatColor.BOLD + "VICTORY!", "", 20, 20, 20);
 
-			arena.reset(true);
+			arena.reset();
 		}
 	}
 

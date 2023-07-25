@@ -7,6 +7,7 @@ import net.slqmy.bedwars.utility.types.BedLocation;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
+import org.bukkit.WorldCreator;
 import org.bukkit.block.BlockFace;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -31,7 +32,12 @@ public final class ArenaManager {
 			final String worldName = config.getString("arenas." + arenaKey + ".world-name");
 			assert worldName != null;
 
-			final World world = Bukkit.getWorld(worldName);
+			final World world = Bukkit.createWorld(
+							new WorldCreator(worldName)
+			);
+			assert world != null;
+
+			world.setAutoSave(false);
 
 			final ConfigurationSection teams = config.getConfigurationSection("arenas." + arenaKey + ".teams");
 			assert teams != null;
@@ -127,9 +133,22 @@ public final class ArenaManager {
 		return null;
 	}
 
-	public @Nullable Arena getArena(final @NotNull UUID entityUUID) {
+	public @Nullable Arena getArena(@NotNull final UUID entityUUID) {
 		for (final Arena arena : arenas) {
 			if (arena.getVillager().getUniqueId().equals(entityUUID)) {
+				return arena;
+			}
+		}
+
+		return null;
+	}
+
+	public @Nullable Arena getArena(@NotNull final World world) {
+		for (final Arena arena : arenas) {
+			final World arenaWorld = arena.getSpawnLocation().getWorld();
+			assert arenaWorld != null;
+
+			if (arenaWorld.getName().equals(world.getName())) {
 				return arena;
 			}
 		}

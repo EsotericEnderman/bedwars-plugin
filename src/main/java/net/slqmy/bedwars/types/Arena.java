@@ -5,10 +5,7 @@ import net.slqmy.bedwars.enums.GameState;
 import net.slqmy.bedwars.enums.Team;
 import net.slqmy.bedwars.utility.ConfigurationUtility;
 import net.slqmy.bedwars.utility.types.BedLocation;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
@@ -28,8 +25,9 @@ public final class Arena {
 	private final HashMap<Team, BedLocation> bedLocations;
 	private final double voidLevel;
 	private final List<UUID> players = new ArrayList<>();
-
 	private final Villager villager;
+
+	private boolean isWorldLoaded = true;
 
 	private GameState state = GameState.WAITING;
 	private Game game;
@@ -67,7 +65,7 @@ public final class Arena {
 		game.start();
 	}
 
-	public void reset(final boolean kickPlayers) {
+	public void reset() {
 		state = GameState.WAITING;
 
 		countdown.cancel();
@@ -76,7 +74,7 @@ public final class Arena {
 		game.cancelTasks();
 		game = new Game(plugin, this);
 
-		if (kickPlayers) {
+		if (state == GameState.PLAYING) {
 			final Location spawnLocation = ConfigurationUtility.getLobbySpawn();
 
 			for (final UUID uuid : players) {
@@ -88,6 +86,18 @@ public final class Arena {
 			}
 
 			players.clear();
+			final World world = spawnLocation.getWorld();
+			assert world != null;
+
+			final String worldName = world.getName();
+
+			isWorldLoaded = false;
+			Bukkit.unloadWorld(world, false);
+
+			final World reloadedWorld =	Bukkit.createWorld(new WorldCreator(worldName));
+			assert reloadedWorld != null;
+
+			reloadedWorld.setAutoSave(false);
 		}
 
 		updateVillager();
@@ -116,15 +126,13 @@ public final class Arena {
 
 		if (players.size() < ConfigurationUtility.getRequiredPlayers()) {
 			if (state == GameState.COUNTDOWN) {
-				reset(false);
-
 				sendMessage(ChatColor.RED + "There are not enough players! Countdown cancelled.");
 				sendTitle(ChatColor.RED + "Countdown cancelled!");
 			} else if (state == GameState.PLAYING) {
-				reset(true);
-
 				sendMessage(ChatColor.RED + "The game has ended because too many players have left.");
 			}
+
+			reset();
 		}
 
 		updateVillager();
@@ -158,6 +166,10 @@ public final class Arena {
 		return id;
 	}
 
+	public Location getSpawnLocation() {
+		return spawnLocation;
+	}
+
 	public double getVoidLevel() {
 		return voidLevel;
 	}
@@ -182,11 +194,19 @@ public final class Arena {
 		return players;
 	}
 
+	public boolean isWorldLoaded() {
+		return isWorldLoaded;
+	}
+
 	public Villager getVillager() {
 		return villager;
 	}
 
 	public Game getGame() {
 		return game;
+	}
+
+	public void toggleIsWorldLoaded() {
+		this.isWorldLoaded = !isWorldLoaded;
 	}
 }

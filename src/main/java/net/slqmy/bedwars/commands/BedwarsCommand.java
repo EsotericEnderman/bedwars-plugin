@@ -98,6 +98,11 @@ public final class BedwarsCommand extends AbstractCommand {
 					return true;
 				}
 
+				if (!arena.isWorldLoaded()) {
+					player.sendMessage(ChatColor.RED + "That arena is being loaded right now, please wait!");
+					return true;
+				}
+
 				arena.addPlayer(player);
 				player.sendMessage(ChatColor.GREEN + "You have successfully been added to arena " + ChatColor.YELLOW
 								+ ChatColor.UNDERLINE + "#" + id + ChatColor.GREEN + "!");
