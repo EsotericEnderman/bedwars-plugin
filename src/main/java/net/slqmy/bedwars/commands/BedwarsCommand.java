@@ -2,6 +2,7 @@ package net.slqmy.bedwars.commands;
 
 import net.slqmy.bedwars.Bedwars;
 import net.slqmy.bedwars.enums.GameState;
+import net.slqmy.bedwars.managers.MessageManager;
 import net.slqmy.bedwars.types.AbstractCommand;
 import net.slqmy.bedwars.types.Arena;
 import net.slqmy.bedwars.utility.ConfigurationUtility;
@@ -55,7 +56,7 @@ public final class BedwarsCommand extends AbstractCommand {
 					return true;
 				}
 
-				player.sendMessage(ChatColor.GREEN + "You have left arena " + ChatColor.YELLOW + ChatColor.UNDERLINE + "#" + arena.getID() + ChatColor.GREEN + ".");
+				player.sendMessage(MessageManager.getMessage("leave-arena"));
 
 				arena.removePlayer(player);
 			} else {
