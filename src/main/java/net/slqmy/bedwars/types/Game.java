@@ -4,6 +4,7 @@ import net.slqmy.bedwars.Bedwars;
 import net.slqmy.bedwars.enums.GameState;
 import net.slqmy.bedwars.enums.Team;
 import net.slqmy.bedwars.utility.ConfigurationUtility;
+import net.slqmy.bedwars.utility.PacketUtility;
 import net.slqmy.bedwars.utility.types.BedLocation;
 import org.bukkit.*;
 import org.bukkit.block.Block;
@@ -107,7 +108,7 @@ public final class Game {
 
 		arena.sendMessage(
 						ChatColor.DARK_GRAY + " \n| " + breakerTeam.getColour() + breaker.getName()
-						+ ChatColor.YELLOW + " has broken " + team.getColour() + team.getName() + " bed" + ChatColor.YELLOW + "!\n "
+										+ ChatColor.YELLOW + " has broken " + team.getColour() + team.getName() + " bed" + ChatColor.YELLOW + "!\n "
 		);
 
 		bedsAlive.replace(team, false);

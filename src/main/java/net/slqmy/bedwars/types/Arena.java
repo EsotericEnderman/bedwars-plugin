@@ -161,8 +161,10 @@ public final class Arena {
 	}
 
 	public void updateVillager() {
+		final int playerCount = players.size();
+
 		villager.setCustomName(
-						ChatColor.GOLD + "Bedwars Arena " + ChatColor.YELLOW + ChatColor.UNDERLINE + "#" + id + ChatColor.DARK_GRAY + " - " + ChatColor.GRAY + "(" + ChatColor.YELLOW + players.size() + ChatColor.GRAY + " players) " + ChatColor.DARK_GRAY + "- " + ChatColor.YELLOW + "Click to join!"
+						ChatColor.GOLD + "Bedwars Arena " + ChatColor.YELLOW + ChatColor.UNDERLINE + "#" + id + ChatColor.DARK_GRAY + " - " + ChatColor.GRAY + "(" + ChatColor.YELLOW + playerCount + ChatColor.GRAY + " player" + (playerCount == 1 ? "" : "s") + ") " + ChatColor.DARK_GRAY + "- " + ChatColor.YELLOW + "Click to join!"
 		);
 	}
 
@@ -211,6 +213,6 @@ public final class Arena {
 	}
 
 	public void toggleIsWorldLoaded() {
-		this.isWorldLoaded = !isWorldLoaded;
+		isWorldLoaded = !isWorldLoaded;
 	}
 }

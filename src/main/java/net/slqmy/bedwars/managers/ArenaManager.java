@@ -97,11 +97,11 @@ public final class ArenaManager {
 											bedLocations,
 											new Location(
 															Bukkit.getWorld(npcWorldName),
-															config.getDouble("arenas." +  arenaKey + ".npc-location.x"),
-															config.getDouble("arenas." +  arenaKey + ".npc-location.y"),
-															config.getDouble("arenas." +  arenaKey + ".npc-location.z"),
-															(float) config.getDouble("arenas." +  arenaKey + ".npc-location.yaw"),
-															(float) config.getDouble("arenas." +  arenaKey + ".npc-location.pitch")
+															config.getDouble("arenas." + arenaKey + ".npc-location.x"),
+															config.getDouble("arenas." + arenaKey + ".npc-location.y"),
+															config.getDouble("arenas." + arenaKey + ".npc-location.z"),
+															(float) config.getDouble("arenas." + arenaKey + ".npc-location.yaw"),
+															(float) config.getDouble("arenas." + arenaKey + ".npc-location.pitch")
 											),
 											config.getDouble("arenas." + arenaKey + ".void-level")
 							)

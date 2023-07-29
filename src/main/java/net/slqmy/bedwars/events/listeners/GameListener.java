@@ -13,8 +13,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.player.PlayerInteractAtEntityEvent;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.world.WorldLoadEvent;
 import org.bukkit.inventory.EquipmentSlot;
@@ -39,8 +40,9 @@ public final class GameListener implements Listener {
 		}
 	}
 
+	// PlayerInteractAtEntityEvent does not work for some reason.
 	@EventHandler
-	public void onPlayerInteractAtEntity(@NotNull final PlayerInteractAtEntityEvent event) {
+	public void onPlayerInteractEntity(@NotNull final PlayerInteractEntityEvent event) {
 		final Entity clickedEntity = event.getRightClicked();
 
 		if (event.getHand() == EquipmentSlot.OFF_HAND || clickedEntity.getType() != EntityType.VILLAGER) {
@@ -71,7 +73,11 @@ public final class GameListener implements Listener {
 	public void onBlockBreak(@NotNull final BlockBreakEvent event) {
 		final Arena arena = plugin.getArenaManager().getArena(event.getPlayer());
 
-		if (arena != null && arena.getState() == GameState.PLAYING) {
+		if (arena == null) {
+			return;
+		}
+
+		if (arena.getState() == GameState.PLAYING) {
 			final Game game = arena.getGame();
 			final Block block = event.getBlock();
 
@@ -100,10 +106,17 @@ public final class GameListener implements Listener {
 
 	@EventHandler
 	public void onPlayerRespawn(@NotNull final PlayerRespawnEvent event) {
-		final Arena arena = plugin.getArenaManager().getArena(event.getPlayer());
+		final Player player = event.getPlayer();
+		final Arena arena = plugin.getArenaManager().getArena(player);
 
-		if (arena != null && arena.getState() == GameState.PLAYING) {
-			event.setRespawnLocation(arena.getGame().getRespawnLocation(event.getPlayer()));
+		if (arena == null) {
+			return;
 		}
+
+		event.setRespawnLocation(
+						arena.getState() == GameState.PLAYING ?
+										arena.getGame().getRespawnLocation(player)
+										: arena.getSpawnLocation()
+		);
 	}
 }

@@ -12,8 +12,6 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Bedwars extends JavaPlugin {
-	private static final PluginManager PLUGIN_MANAGER = Bukkit.getPluginManager();
-
 	private ArenaManager arenaManager;
 
 	@Override
@@ -27,8 +25,10 @@ public final class Bedwars extends JavaPlugin {
 
 		arenaManager = new ArenaManager(this);
 
-		PLUGIN_MANAGER.registerEvents(new ConnectionListener(this), this);
-		PLUGIN_MANAGER.registerEvents(new GameListener(this), this);
+		final PluginManager pluginManager = Bukkit.getPluginManager();
+
+		pluginManager.registerEvents(new ConnectionListener(this), this);
+		pluginManager.registerEvents(new GameListener(this), this);
 
 		new BedwarsCommand(this);
 	}
