@@ -67,7 +67,7 @@ public final class BedwarsCommand extends AbstractCommand {
 				final Arena playerArena = plugin.getArenaManager().getArena(player);
 
 				if (playerArena != null) {
-					player.sendMessage(ChatColor.RED + "You are already in an arena! Use " + ChatColor.UNDERLINE + "/arena leave" + ChatColor.RED + " to leave.");
+					player.sendMessage(ChatColor.RED + "You are already in an arena! Use " + ChatColor.UNDERLINE + "/bedwars leave" + ChatColor.RED + " to leave.");
 					return true;
 				}
 
