@@ -11,9 +11,12 @@ public final class MessageManager {
 	private static YamlConfiguration messages;
 
 	public static void setUpLanguageFile(@NotNull final Bedwars plugin) {
-		final File file = new File(plugin.getDataFolder(), "languages.yml");
+		final File file = new File(plugin.getDataFolder(), "messages.yml");
 
-		plugin.saveResource("languages.yml", false);
+		if (!file.exists()) {
+			plugin.saveResource("messages.yml", false);
+		}
+
 		messages = YamlConfiguration.loadConfiguration(file);
 	}
 
