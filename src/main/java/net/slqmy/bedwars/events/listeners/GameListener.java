@@ -51,6 +51,19 @@ public final class GameListener implements Listener {
 
 		if (arena != null) {
 			Bukkit.dispatchCommand(event.getPlayer(), "bedwars join " + arena.getID());
+			event.setCancelled(true);
+		}
+	}
+
+	@EventHandler
+	public void onEntityDamageByEntity(@NotNull final EntityDamageByEntityEvent event) {
+
+		if (event.getDamager() instanceof final Player attacker) {
+			final Arena arena = plugin.getArenaManager().getArena(attacker);
+
+			if (arena != null && arena.getState() != GameState.PLAYING) {
+				event.setCancelled(true);
+			}
 		}
 	}
 
@@ -70,6 +83,8 @@ public final class GameListener implements Listener {
 
 				event.setCancelled(!game.destroyBed(team, event.getPlayer()));
 			}
+		} else {
+			event.setCancelled(true);
 		}
 	}
 
