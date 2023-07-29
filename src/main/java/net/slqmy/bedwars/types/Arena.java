@@ -80,24 +80,29 @@ public final class Arena {
 				final Player player = Bukkit.getPlayer(uuid);
 				assert player != null;
 
-				player.teleport(spawnLocation);
+				player.teleport(ConfigurationUtility.getLobbySpawn());
 				player.getInventory().clear();
 			}
 
 			players.clear();
-			final World world = spawnLocation.getWorld();
-			assert world != null;
 
-			final String worldName = world.getName();
+			final World arenaWorld = spawnLocation.getWorld();
+			assert arenaWorld != null;
 
-			isWorldLoaded = false;
-			Bukkit.unloadWorld(world, false);
+			arenaWorld.setAutoSave(false);
 
-			final World reloadedWorld =	Bukkit.createWorld(new WorldCreator(worldName));
+			boolean success = Bukkit.unloadWorld(arenaWorld, false);
+			isWorldLoaded = !success;
+
+			final World reloadedWorld = Bukkit.createWorld(new WorldCreator(arenaWorld.getName()));
 			assert reloadedWorld != null;
 
 			reloadedWorld.setAutoSave(false);
+
+			Bukkit.reload();
 		}
+
+		state = GameState.WAITING;
 
 		updateVillager();
 	}
