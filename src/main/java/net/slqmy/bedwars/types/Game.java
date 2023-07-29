@@ -114,6 +114,8 @@ public final class Game {
 	public void handleDeath(@NotNull final Player noob) {
 		final Team team = teams.get(noob.getUniqueId());
 
+		PacketUtility.respawnPlayer(noob);
+
 		if (bedsAlive.get(team)) {
 			noob.teleport(arena.getSpawns().get(team));
 			arena.sendMessage(team.getColour() + noob.getName() + ChatColor.YELLOW + " died!");
