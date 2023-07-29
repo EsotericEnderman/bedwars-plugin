@@ -22,9 +22,9 @@ arenas:
       pitch: 0
     npc-location:
       world-name: world
-      x: 0
+      x: 4
       y: 117
-      z: 11
+      z: 13
       yaw: -180
       pitch: 0
     teams:
@@ -154,7 +154,7 @@ arenas:
       pitch: 0
     npc-location:
       world-name: world
-      x: 0
+      x: -4
       y: 117
       z: 13
       yaw: -180
