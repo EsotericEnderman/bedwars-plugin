@@ -87,8 +87,12 @@ public final class Game {
 				assert player != null;
 
 				if (player.getLocation().getY() <= arena.getVoidLevel()) {
-					player.setFallDistance(0);
-					handleDeath(player);
+					// Lazy way to avoid a ConcurrentModificationException.
+					Bukkit.getScheduler().runTaskLater(plugin, () -> {
+
+						player.setFallDistance(0);
+						handleDeath(player);
+					}, 1);
 				}
 			}
 		}, 40, 4));
