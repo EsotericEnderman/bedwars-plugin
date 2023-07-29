@@ -20,10 +20,17 @@ public final class MessageManager {
 		messages = YamlConfiguration.loadConfiguration(file);
 	}
 
-	public static @NotNull String getMessage(@NotNull final String messageKey) {
+	public static @NotNull String getMessage(@NotNull final String messageKey, @NotNull final Object @NotNull ... placeholderValues) {
 		final String message = messages.getString(messageKey);
 		assert message != null;
 
-		return ChatColor.translateAlternateColorCodes('&', message);
+		String[] parts = message.split("\\{\\w+}");
+		StringBuilder stringBuilder = new StringBuilder(parts[0]);
+
+		for (int i = 1; i < parts.length; i++) {
+			stringBuilder.append(placeholderValues[i - 1]);
+		}
+
+		return ChatColor.translateAlternateColorCodes('&', stringBuilder.toString());
 	}
 }

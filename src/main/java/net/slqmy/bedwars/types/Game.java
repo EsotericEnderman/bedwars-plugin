@@ -9,11 +9,13 @@ import net.slqmy.bedwars.utility.types.BedLocation;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.type.Bed;
+import org.bukkit.boss.BossBar;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.scheduler.BukkitTask;
+import org.bukkit.scoreboard.Scoreboard;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -35,6 +37,10 @@ public final class Game {
 		this.arena = arena;
 	}
 
+	public HashMap<UUID, Team> getTeams() {
+		return teams;
+	}
+
 	public void start() {
 		arena.setState(GameState.PLAYING);
 		arena.sendTitle(ChatColor.GREEN.toString() + ChatColor.BOLD + "GO!");
@@ -45,6 +51,16 @@ public final class Game {
 			final Team team = Team.values()[i];
 
 			teams.put(uuid, team);
+
+			final Player player = Bukkit.getPlayer(uuid);
+			assert player != null;
+
+			final BossBar teamBossBar = plugin.getArenaManager().getBossBars().get(team);
+			teamBossBar.addPlayer(player);
+
+			final Scoreboard teamScoreboard = plugin.getArenaManager().getScoreboards().get(team);
+			player.setScoreboard(teamScoreboard);
+
 			bedsAlive.put(team, true);
 
 			final BedLocation bedLocation = arena.getBedLocations().get(team);
@@ -63,8 +79,6 @@ public final class Game {
 				block = block.getRelative(bedLocation.getFacing().getOppositeFace());
 			}
 
-			final Player player = Bukkit.getPlayer(uuid);
-			assert player != null;
 
 			player.teleport(arena.getSpawns().get(team));
 			player.setGameMode(GameMode.SURVIVAL);

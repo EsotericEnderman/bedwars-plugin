@@ -6,15 +6,13 @@ import net.slqmy.bedwars.enums.Team;
 import net.slqmy.bedwars.utility.ConfigurationUtility;
 import net.slqmy.bedwars.utility.types.BedLocation;
 import org.bukkit.*;
+import org.bukkit.boss.BossBar;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public final class Arena {
 	private final Bedwars plugin;
@@ -67,21 +65,23 @@ public final class Arena {
 	}
 
 	public void reset(final boolean kickPlayers) {
-
 		countdown.cancel();
 
-		countdown = new Countdown(plugin, this);
-		game.cancelTasks();
-		game = new Game(plugin, this);
 
 		if (kickPlayers) {
-
 			for (final UUID uuid : players) {
 				final Player player = Bukkit.getPlayer(uuid);
 				assert player != null;
 
 				player.teleport(ConfigurationUtility.getLobbySpawn());
 				player.getInventory().clear();
+
+				final BossBar playerBossBar = plugin.getArenaManager().getBossBars().get(game.getTeams().get(player.getUniqueId()));
+				player.setScoreboard(Objects.requireNonNull(Bukkit.getScoreboardManager()).getNewScoreboard());
+
+				if (playerBossBar != null) {
+					playerBossBar.removePlayer(player);
+				}
 			}
 
 			players.clear();
@@ -101,6 +101,10 @@ public final class Arena {
 
 			Bukkit.reload();
 		}
+
+		countdown = new Countdown(plugin, this);
+		game.cancelTasks();
+		game = new Game(plugin, this);
 
 		state = GameState.WAITING;
 
@@ -127,6 +131,14 @@ public final class Arena {
 		players.remove(player.getUniqueId());
 		player.teleport(ConfigurationUtility.getLobbySpawn());
 		player.getInventory().clear();
+
+		final BossBar playerBossBar = plugin.getArenaManager().getBossBars().get(game.getTeams().get(player.getUniqueId()));
+
+		if (playerBossBar != null) {
+			playerBossBar.removePlayer(player);
+		}
+
+		player.setScoreboard(Objects.requireNonNull(Bukkit.getScoreboardManager()).getNewScoreboard());
 
 		if (players.size() < ConfigurationUtility.getRequiredPlayers()) {
 			if (state == GameState.COUNTDOWN) {

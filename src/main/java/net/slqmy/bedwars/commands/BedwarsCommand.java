@@ -56,7 +56,7 @@ public final class BedwarsCommand extends AbstractCommand {
 					return true;
 				}
 
-				player.sendMessage(MessageManager.getMessage("leave-arena"));
+				player.sendMessage(MessageManager.getMessage("leave-arena", arena.getID()));
 
 				arena.removePlayer(player);
 			} else {

@@ -21,7 +21,7 @@ public final class Bedwars extends JavaPlugin {
 		ConfigurationUtility.setUpConfig(this);
 		MessageManager.setUpLanguageFile(this);
 
-		// Todo: add a scoreboard, boss bar, tab list, sidebar, and coloured messages.
+		// Todo: add a scoreboard, boss bar, tab list.
 
 		arenaManager = new ArenaManager(this);
 
