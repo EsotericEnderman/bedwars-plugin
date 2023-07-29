@@ -76,7 +76,7 @@ public final class ArenaManager {
 			final String spawnWorldName = config.getString("arenas." + arenaKey + ".spawn-location.world-name");
 			assert spawnWorldName != null;
 
-			final String npcWorldName = config.getString("arenas.");
+			final String npcWorldName = config.getString("arenas." + arenaKey + ".npc-location.world-name");
 			assert npcWorldName != null;
 
 			// Idea: make a utility method for this:
