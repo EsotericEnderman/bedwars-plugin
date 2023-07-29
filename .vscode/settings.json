@@ -1,4 +1,7 @@
 {
-	"java.compile.nullAnalysis.mode": "automatic",
-	"cSpell.words": ["Bukkit", "minigame"]
+  "java.compile.nullAnalysis.mode": "automatic",
+  "cSpell.words": [
+    "Bukkit",
+    "minigame"
+  ]
 }
