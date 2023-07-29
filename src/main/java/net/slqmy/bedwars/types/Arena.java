@@ -47,8 +47,9 @@ public final class Arena {
 		villager = (Villager) world.spawnEntity(npcLocation, EntityType.VILLAGER);
 
 		villager.setAI(false);
-		villager.setCollidable(false);
 		villager.setInvulnerable(true);
+		villager.setCollidable(false); // Doesn't seem to do anything.
+		villager.setSilent(true);
 
 		villager.setCustomNameVisible(true);
 		villager.setProfession(Villager.Profession.FARMER);
