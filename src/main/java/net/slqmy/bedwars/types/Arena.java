@@ -66,8 +66,7 @@ public final class Arena {
 		game.start();
 	}
 
-	public void reset() {
-		state = GameState.WAITING;
+	public void reset(final boolean kickPlayers) {
 
 		countdown.cancel();
 
@@ -75,8 +74,7 @@ public final class Arena {
 		game.cancelTasks();
 		game = new Game(plugin, this);
 
-		if (state == GameState.PLAYING) {
-			final Location spawnLocation = ConfigurationUtility.getLobbySpawn();
+		if (kickPlayers) {
 
 			for (final UUID uuid : players) {
 				final Player player = Bukkit.getPlayer(uuid);
@@ -129,11 +127,11 @@ public final class Arena {
 			if (state == GameState.COUNTDOWN) {
 				sendMessage(ChatColor.RED + "There are not enough players! Countdown cancelled.");
 				sendTitle(ChatColor.RED + "Countdown cancelled!");
+				reset(false);
 			} else if (state == GameState.PLAYING) {
 				sendMessage(ChatColor.RED + "The game has ended because too many players have left.");
+				reset(true);
 			}
-
-			reset();
 		}
 
 		updateVillager();

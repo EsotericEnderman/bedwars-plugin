@@ -134,11 +134,7 @@ public final class Game {
 
 			arena.sendMessage(proTeam.getColour() + pro.getName() + ChatColor.YELLOW + " has won!");
 
-			arena.sendTitle(ChatColor.RED.toString() + ChatColor.BOLD + "GAME OVER!");
-			pro.sendTitle(ChatColor.GOLD.toString() + ChatColor.BOLD + "VICTORY!", "", 20, 20, 20);
-
-			arena.reset();
-		}
+		arena.reset(true);
 	}
 
 	public Location getRespawnLocation(@NotNull final Player player) {
