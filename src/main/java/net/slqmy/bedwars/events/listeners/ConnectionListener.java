@@ -1,6 +1,7 @@
 package net.slqmy.bedwars.events.listeners;
 
 import net.slqmy.bedwars.Bedwars;
+import net.slqmy.bedwars.managers.NameTagManager;
 import net.slqmy.bedwars.types.Arena;
 import net.slqmy.bedwars.utility.ConfigurationUtility;
 import org.bukkit.entity.Player;
@@ -31,5 +32,7 @@ public final class ConnectionListener implements Listener {
 		if (arena != null) {
 			arena.removePlayer(player);
 		}
+
+		NameTagManager.removeTag(player);
 	}
 }

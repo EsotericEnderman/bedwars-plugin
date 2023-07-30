@@ -3,6 +3,7 @@ package net.slqmy.bedwars.types;
 import net.slqmy.bedwars.Bedwars;
 import net.slqmy.bedwars.enums.GameState;
 import net.slqmy.bedwars.enums.Team;
+import net.slqmy.bedwars.managers.NameTagManager;
 import net.slqmy.bedwars.utility.ConfigurationUtility;
 import net.slqmy.bedwars.utility.PacketUtility;
 import net.slqmy.bedwars.utility.types.BedLocation;
@@ -18,10 +19,7 @@ import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.scoreboard.Scoreboard;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public final class Game {
 	private final Bedwars plugin;
@@ -61,6 +59,8 @@ public final class Game {
 			final Scoreboard teamScoreboard = plugin.getArenaManager().getScoreboards().get(team);
 			player.setScoreboard(teamScoreboard);
 
+			NameTagManager.newTag(player, team);
+
 			bedsAlive.put(team, true);
 
 			final BedLocation bedLocation = arena.getBedLocations().get(team);
@@ -96,6 +96,10 @@ public final class Game {
 			alive.add(uuid);
 		}
 
+		for (final UUID playerUUID : arena.getPlayers()) {
+			NameTagManager.setNameTags(Objects.requireNonNull(Bukkit.getPlayer(playerUUID)));
+		}
+
 		tasks.add(Bukkit.getScheduler().runTaskTimer(plugin, () -> {
 			for (final UUID uuid : alive) {
 				final Player player = Bukkit.getPlayer(uuid);
@@ -124,6 +128,12 @@ public final class Game {
 						ChatColor.DARK_GRAY + " \n| " + breakerTeam.getColour() + breaker.getName()
 										+ ChatColor.YELLOW + " has broken " + team.getColour() + team.getName() + " bed" + ChatColor.YELLOW + "!\n "
 		);
+
+		for (final Team currentTeam : Team.values()) {
+			final Scoreboard scoreboard = plugin.getArenaManager().getScoreboards().get(currentTeam);
+			Objects.requireNonNull(scoreboard.getTeam(team.name().toLowerCase() + "_team_bed_status")).setSuffix(ChatColor.RED + "✘");
+		}
+
 
 		bedsAlive.replace(team, false);
 
