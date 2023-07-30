@@ -128,17 +128,31 @@ public final class ArenaManager {
 
 			// Every line has to be unique.
 
-			final Score ip = objective.getScore(ChatColor.GRAY + "localhost " + ChatColor.DARK_GRAY + "| " + ChatColor.GRAY + "0");
-			ip.setScore(1);
+			objective.getScore(ChatColor.GRAY + "localhost " + ChatColor.DARK_GRAY + "| " + ChatColor.GRAY + "0").setScore(1);
+			objective.getScore("").setScore(2);
 
-			final Score space1 = objective.getScore("");
-			space1.setScore(2);
+			// Red ✔
+			// Yellow ✘
+			// Green ✔
+			// Blue ✘
 
-			final Score teamScore = objective.getScore(ChatColor.GRAY + "Team: " + team.getColour() + team.getName()); // 144 character limit.
-			teamScore.setScore(10);
+			int index = 3;
 
-			final Score space2 = objective.getScore("");
-			space2.setScore(11);
+			for (; index < 3 + Team.values().length; index++) {
+				final Team currentTeam = Team.values()[index - 3];
+
+				final org.bukkit.scoreboard.Team teamBedStatus = scoreboard.registerNewTeam(currentTeam.name().toLowerCase() + "_team_bed_status");
+				teamBedStatus.addEntry(currentTeam.getColour().toString());
+
+				teamBedStatus.setPrefix(currentTeam.getColour() + currentTeam.getName() + " "); // 1.13+ -> No character limit.
+				teamBedStatus.setSuffix(ChatColor.GREEN + "✔");
+
+				objective.getScore(currentTeam.getColour().toString()).setScore(index);
+			}
+
+			objective.getScore(" ").setScore(index + 1);
+			objective.getScore(ChatColor.GRAY + "Team: " + team.getColour() + team.getName()).setScore(index + 2); // 144 character limit.
+			objective.getScore("  ").setScore(index + 3);
 
 			scoreboards.put(
 							team,
