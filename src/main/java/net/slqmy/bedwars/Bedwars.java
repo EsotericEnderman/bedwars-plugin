@@ -35,8 +35,10 @@ public final class Bedwars extends JavaPlugin {
 
 	@Override
 	public void onDisable() {
-		for (final Arena arena : arenaManager.getArenas()) {
-			arena.getVillager().remove();
+		if (arenaManager != null) {
+			for (final Arena arena : arenaManager.getArenas()) {
+				arena.getVillager().remove();
+			}
 		}
 	}
 
