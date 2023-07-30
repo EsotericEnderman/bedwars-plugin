@@ -48,7 +48,7 @@ public final class Game {
 
 		for (int i = 0; i < arena.getPlayers().size(); i++) {
 			final UUID uuid = arena.getPlayers().get(i);
-			final Team team = Team.values()[i];
+			final Team team = Team.values()[i % Team.values().length];
 
 			teams.put(uuid, team);
 
