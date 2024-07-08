@@ -3,5 +3,6 @@
   "cSpell.words": [
     "Bukkit",
     "minigame"
-  ]
+  ],
+  "java.configuration.updateBuildConfiguration": "automatic"
 }
