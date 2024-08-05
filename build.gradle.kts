@@ -78,5 +78,5 @@ bukkitPluginYaml {
   main = project.group.toString() + groupStringSeparator + pascalcase(rootProject.name)
   apiVersion = paperApiVersion
 
-  load = BukkitPluginYaml.PluginLoadOrder.STARTUP
+  load = BukkitPluginYaml.PluginLoadOrder.POSTWORLD
 }
