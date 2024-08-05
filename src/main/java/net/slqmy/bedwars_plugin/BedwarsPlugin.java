@@ -8,7 +8,6 @@ import net.slqmy.bedwars_plugin.commands.BedwarsCommand;
 import net.slqmy.bedwars_plugin.events.listeners.ConnectionListener;
 import net.slqmy.bedwars_plugin.events.listeners.GameListener;
 import net.slqmy.bedwars_plugin.managers.ArenaManager;
-import net.slqmy.bedwars_plugin.managers.MessageManager;
 import net.slqmy.bedwars_plugin.types.Arena;
 import net.slqmy.bedwars_plugin.utility.ConfigurationUtility;
 
@@ -20,7 +19,6 @@ public final class BedwarsPlugin extends JavaPlugin {
 		// Setting up the configuration must happen before setting up the arena manager,
 		// as the arena manager relies heavily on the config.yml file.
 		ConfigurationUtility.setUpConfig(this);
-		MessageManager.setUpLanguageFile(this);
 
 		// Todo: add a scoreboard, boss bar, tab list.
 
