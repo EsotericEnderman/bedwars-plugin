@@ -1,7 +1,0 @@
-name: Bedwars
-version: "${project.version}"
-main: net.slqmy.bedwars.Bedwars
-api-version: "1.20"
-prefix: Bedwars
-author: slqmy
-description: A very simple bedwars plugin project.
