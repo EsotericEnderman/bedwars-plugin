@@ -1,6 +1,5 @@
-package net.slqmy.bedwars.types;
+package net.slqmy.bedwars_plugin.types;
 
-import net.slqmy.bedwars.utility.PluginUtility;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Server;
@@ -11,6 +10,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.util.StringUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import net.slqmy.bedwars_plugin.utility.PluginUtility;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

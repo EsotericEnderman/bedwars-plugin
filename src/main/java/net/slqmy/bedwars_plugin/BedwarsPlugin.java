@@ -1,17 +1,18 @@
-package net.slqmy.bedwars;
+package net.slqmy.bedwars_plugin;
 
-import net.slqmy.bedwars.commands.BedwarsCommand;
-import net.slqmy.bedwars.events.listeners.ConnectionListener;
-import net.slqmy.bedwars.events.listeners.GameListener;
-import net.slqmy.bedwars.managers.ArenaManager;
-import net.slqmy.bedwars.managers.MessageManager;
-import net.slqmy.bedwars.types.Arena;
-import net.slqmy.bedwars.utility.ConfigurationUtility;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class Bedwars extends JavaPlugin {
+import net.slqmy.bedwars_plugin.commands.BedwarsCommand;
+import net.slqmy.bedwars_plugin.events.listeners.ConnectionListener;
+import net.slqmy.bedwars_plugin.events.listeners.GameListener;
+import net.slqmy.bedwars_plugin.managers.ArenaManager;
+import net.slqmy.bedwars_plugin.managers.MessageManager;
+import net.slqmy.bedwars_plugin.types.Arena;
+import net.slqmy.bedwars_plugin.utility.ConfigurationUtility;
+
+public final class BedwarsPlugin extends JavaPlugin {
 	private ArenaManager arenaManager;
 
 	@Override

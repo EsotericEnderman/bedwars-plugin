@@ -1,10 +1,5 @@
-package net.slqmy.bedwars.events.listeners;
+package net.slqmy.bedwars_plugin.events.listeners;
 
-import net.slqmy.bedwars.Bedwars;
-import net.slqmy.bedwars.enums.GameState;
-import net.slqmy.bedwars.enums.Team;
-import net.slqmy.bedwars.types.Arena;
-import net.slqmy.bedwars.types.Game;
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
@@ -22,12 +17,18 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.metadata.MetadataValue;
 import org.jetbrains.annotations.NotNull;
 
+import net.slqmy.bedwars_plugin.BedwarsPlugin;
+import net.slqmy.bedwars_plugin.enums.GameState;
+import net.slqmy.bedwars_plugin.enums.Team;
+import net.slqmy.bedwars_plugin.types.Arena;
+import net.slqmy.bedwars_plugin.types.Game;
+
 import java.util.List;
 
 public final class GameListener implements Listener {
-	private final Bedwars plugin;
+	private final BedwarsPlugin plugin;
 
-	public GameListener(@NotNull final Bedwars plugin) {
+	public GameListener(@NotNull final BedwarsPlugin plugin) {
 		this.plugin = plugin;
 	}
 

@@ -1,4 +1,4 @@
-package net.slqmy.bedwars.utility;
+package net.slqmy.bedwars_plugin.utility;
 
 import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
 import net.minecraft.server.level.ServerPlayer;

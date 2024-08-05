@@ -1,9 +1,10 @@
-package net.slqmy.bedwars.managers;
+package net.slqmy.bedwars_plugin.managers;
 
-import net.slqmy.bedwars.enums.Team;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+
+import net.slqmy.bedwars_plugin.enums.Team;
 
 public final class NameTagManager {
 	public static void setNameTags(@NotNull final Player player) {

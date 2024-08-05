@@ -1,12 +1,5 @@
-package net.slqmy.bedwars.types;
+package net.slqmy.bedwars_plugin.types;
 
-import net.slqmy.bedwars.Bedwars;
-import net.slqmy.bedwars.enums.GameState;
-import net.slqmy.bedwars.enums.Team;
-import net.slqmy.bedwars.managers.NameTagManager;
-import net.slqmy.bedwars.utility.ConfigurationUtility;
-import net.slqmy.bedwars.utility.PacketUtility;
-import net.slqmy.bedwars.utility.types.BedLocation;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.type.Bed;
@@ -19,10 +12,18 @@ import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.scoreboard.Scoreboard;
 import org.jetbrains.annotations.NotNull;
 
+import net.slqmy.bedwars_plugin.BedwarsPlugin;
+import net.slqmy.bedwars_plugin.enums.GameState;
+import net.slqmy.bedwars_plugin.enums.Team;
+import net.slqmy.bedwars_plugin.managers.NameTagManager;
+import net.slqmy.bedwars_plugin.utility.ConfigurationUtility;
+import net.slqmy.bedwars_plugin.utility.PacketUtility;
+import net.slqmy.bedwars_plugin.utility.types.BedLocation;
+
 import java.util.*;
 
 public final class Game {
-	private final Bedwars plugin;
+	private final BedwarsPlugin plugin;
 
 	private final Arena arena;
 	private final HashMap<UUID, Team> teams = new HashMap<>();
@@ -30,7 +31,7 @@ public final class Game {
 	private final List<UUID> alive = new ArrayList<>();
 	private final List<BukkitTask> tasks = new ArrayList<>();
 
-	public Game(@NotNull final Bedwars plugin, @NotNull final Arena arena) {
+	public Game(@NotNull final BedwarsPlugin plugin, @NotNull final Arena arena) {
 		this.plugin = plugin;
 		this.arena = arena;
 	}

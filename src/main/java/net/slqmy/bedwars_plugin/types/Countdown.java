@@ -1,19 +1,20 @@
-package net.slqmy.bedwars.types;
+package net.slqmy.bedwars_plugin.types;
 
-import net.slqmy.bedwars.Bedwars;
-import net.slqmy.bedwars.enums.GameState;
-import net.slqmy.bedwars.utility.ConfigurationUtility;
 import org.bukkit.ChatColor;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
 
+import net.slqmy.bedwars_plugin.BedwarsPlugin;
+import net.slqmy.bedwars_plugin.enums.GameState;
+import net.slqmy.bedwars_plugin.utility.ConfigurationUtility;
+
 public final class Countdown extends BukkitRunnable {
-	private final Bedwars plugin;
+	private final BedwarsPlugin plugin;
 	private final Arena arena;
 
 	private int countdownSeconds;
 
-	public Countdown(@NotNull final Bedwars plugin, @NotNull final Arena arena) {
+	public Countdown(@NotNull final BedwarsPlugin plugin, @NotNull final Arena arena) {
 		this.plugin = plugin;
 		this.arena = arena;
 

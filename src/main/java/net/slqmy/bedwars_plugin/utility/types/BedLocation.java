@@ -1,4 +1,4 @@
-package net.slqmy.bedwars.utility.types;
+package net.slqmy.bedwars_plugin.utility.types;
 
 import org.bukkit.Location;
 import org.bukkit.World;

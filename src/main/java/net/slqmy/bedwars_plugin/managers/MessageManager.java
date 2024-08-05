@@ -1,16 +1,17 @@
-package net.slqmy.bedwars.managers;
+package net.slqmy.bedwars_plugin.managers;
 
-import net.slqmy.bedwars.Bedwars;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.jetbrains.annotations.NotNull;
+
+import net.slqmy.bedwars_plugin.BedwarsPlugin;
 
 import java.io.File;
 
 public final class MessageManager {
 	private static YamlConfiguration messages;
 
-	public static void setUpLanguageFile(@NotNull final Bedwars plugin) {
+	public static void setUpLanguageFile(@NotNull final BedwarsPlugin plugin) {
 		final File file = new File(plugin.getDataFolder(), "messages.yml");
 
 		if (!file.exists()) {

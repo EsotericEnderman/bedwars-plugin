@@ -1,10 +1,5 @@
-package net.slqmy.bedwars.types;
+package net.slqmy.bedwars_plugin.types;
 
-import net.slqmy.bedwars.Bedwars;
-import net.slqmy.bedwars.enums.GameState;
-import net.slqmy.bedwars.enums.Team;
-import net.slqmy.bedwars.utility.ConfigurationUtility;
-import net.slqmy.bedwars.utility.types.BedLocation;
 import org.bukkit.*;
 import org.bukkit.boss.BossBar;
 import org.bukkit.entity.EntityType;
@@ -12,10 +7,16 @@ import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
 import org.jetbrains.annotations.NotNull;
 
+import net.slqmy.bedwars_plugin.BedwarsPlugin;
+import net.slqmy.bedwars_plugin.enums.GameState;
+import net.slqmy.bedwars_plugin.enums.Team;
+import net.slqmy.bedwars_plugin.utility.ConfigurationUtility;
+import net.slqmy.bedwars_plugin.utility.types.BedLocation;
+
 import java.util.*;
 
 public final class Arena {
-	private final Bedwars plugin;
+	private final BedwarsPlugin plugin;
 
 	private final int id;
 	private final Location spawnLocation;
@@ -31,7 +32,7 @@ public final class Arena {
 	private Game game;
 	private Countdown countdown;
 
-	public Arena(@NotNull final Bedwars plugin, final int id, @NotNull final Location spawnLocation, @NotNull final HashMap<Team, Location> spawns, @NotNull final HashMap<Team, BedLocation> bedLocations, @NotNull final Location npcLocation, final double voidLevel) {
+	public Arena(@NotNull final BedwarsPlugin plugin, final int id, @NotNull final Location spawnLocation, @NotNull final HashMap<Team, Location> spawns, @NotNull final HashMap<Team, BedLocation> bedLocations, @NotNull final Location npcLocation, final double voidLevel) {
 		this.plugin = plugin;
 
 		this.id = id;

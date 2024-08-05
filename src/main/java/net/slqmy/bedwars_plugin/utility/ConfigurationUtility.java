@@ -1,15 +1,16 @@
-package net.slqmy.bedwars.utility;
+package net.slqmy.bedwars_plugin.utility;
 
-import net.slqmy.bedwars.Bedwars;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.jetbrains.annotations.NotNull;
 
+import net.slqmy.bedwars_plugin.BedwarsPlugin;
+
 public final class ConfigurationUtility {
 	private static FileConfiguration config;
 
-	public static void setUpConfig(@NotNull final Bedwars plugin) {
+	public static void setUpConfig(@NotNull final BedwarsPlugin plugin) {
 		config = plugin.getConfig();
 		plugin.saveDefaultConfig();
 	}

@@ -1,24 +1,25 @@
-package net.slqmy.bedwars.commands;
+package net.slqmy.bedwars_plugin.commands;
 
-import net.slqmy.bedwars.Bedwars;
-import net.slqmy.bedwars.enums.GameState;
-import net.slqmy.bedwars.managers.MessageManager;
-import net.slqmy.bedwars.types.AbstractCommand;
-import net.slqmy.bedwars.types.Arena;
-import net.slqmy.bedwars.utility.ConfigurationUtility;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import net.slqmy.bedwars_plugin.BedwarsPlugin;
+import net.slqmy.bedwars_plugin.enums.GameState;
+import net.slqmy.bedwars_plugin.managers.MessageManager;
+import net.slqmy.bedwars_plugin.types.AbstractCommand;
+import net.slqmy.bedwars_plugin.types.Arena;
+import net.slqmy.bedwars_plugin.utility.ConfigurationUtility;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public final class BedwarsCommand extends AbstractCommand {
-	private final Bedwars plugin;
+	private final BedwarsPlugin plugin;
 
-	public BedwarsCommand(@NotNull final Bedwars plugin) {
+	public BedwarsCommand(@NotNull final BedwarsPlugin plugin) {
 		super(
 						"bedwars",
 						"Join or leave a bedwars arena and see all the active arenas.",

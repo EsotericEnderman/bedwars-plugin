@@ -1,9 +1,5 @@
-package net.slqmy.bedwars.managers;
+package net.slqmy.bedwars_plugin.managers;
 
-import net.slqmy.bedwars.Bedwars;
-import net.slqmy.bedwars.enums.Team;
-import net.slqmy.bedwars.types.Arena;
-import net.slqmy.bedwars.utility.types.BedLocation;
 import org.bukkit.*;
 import org.bukkit.block.BlockFace;
 import org.bukkit.boss.BarStyle;
@@ -15,6 +11,11 @@ import org.bukkit.scoreboard.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import net.slqmy.bedwars_plugin.BedwarsPlugin;
+import net.slqmy.bedwars_plugin.enums.Team;
+import net.slqmy.bedwars_plugin.types.Arena;
+import net.slqmy.bedwars_plugin.utility.types.BedLocation;
+
 import java.util.*;
 
 public final class ArenaManager {
@@ -22,7 +23,7 @@ public final class ArenaManager {
 	private final Map<Team, BossBar> bossBars = new HashMap<>();
 	private final Map<Team, Scoreboard> scoreboards = new HashMap<>();
 
-	public ArenaManager(@NotNull final Bedwars plugin) {
+	public ArenaManager(@NotNull final BedwarsPlugin plugin) {
 		final FileConfiguration config = plugin.getConfig();
 		final ConfigurationSection arenasList = config.getConfigurationSection("arenas");
 		assert arenasList != null;

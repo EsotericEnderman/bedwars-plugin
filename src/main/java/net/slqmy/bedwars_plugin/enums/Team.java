@@ -1,4 +1,4 @@
-package net.slqmy.bedwars.enums;
+package net.slqmy.bedwars_plugin.enums;
 
 import org.bukkit.ChatColor;
 import org.bukkit.boss.BarColor;

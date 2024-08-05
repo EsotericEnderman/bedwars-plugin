@@ -1,9 +1,5 @@
-package net.slqmy.bedwars.events.listeners;
+package net.slqmy.bedwars_plugin.events.listeners;
 
-import net.slqmy.bedwars.Bedwars;
-import net.slqmy.bedwars.managers.NameTagManager;
-import net.slqmy.bedwars.types.Arena;
-import net.slqmy.bedwars.utility.ConfigurationUtility;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,10 +7,15 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.jetbrains.annotations.NotNull;
 
-public final class ConnectionListener implements Listener {
-	private final Bedwars plugin;
+import net.slqmy.bedwars_plugin.BedwarsPlugin;
+import net.slqmy.bedwars_plugin.managers.NameTagManager;
+import net.slqmy.bedwars_plugin.types.Arena;
+import net.slqmy.bedwars_plugin.utility.ConfigurationUtility;
 
-	public ConnectionListener(@NotNull final Bedwars plugin) {
+public final class ConnectionListener implements Listener {
+	private final BedwarsPlugin plugin;
+
+	public ConnectionListener(@NotNull final BedwarsPlugin plugin) {
 		this.plugin = plugin;
 	}
 
