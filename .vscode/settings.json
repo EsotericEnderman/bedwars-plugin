@@ -1,7 +1,9 @@
 {
   "java.compile.nullAnalysis.mode": "automatic",
   "cSpell.words": [
+    "bedwars",
     "Bukkit",
+    "Enderman",
     "minigame"
   ],
   "java.configuration.updateBuildConfiguration": "automatic"
