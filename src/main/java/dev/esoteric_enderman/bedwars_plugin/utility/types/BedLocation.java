@@ -1,4 +1,4 @@
-package net.slqmy.bedwars_plugin.utility.types;
+package dev.esoteric_enderman.bedwars_plugin.utility.types;
 
 import org.bukkit.Location;
 import org.bukkit.World;

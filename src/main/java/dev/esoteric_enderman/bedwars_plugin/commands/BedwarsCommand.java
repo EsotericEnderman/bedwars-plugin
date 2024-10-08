@@ -1,4 +1,4 @@
-package net.slqmy.bedwars_plugin.commands;
+package dev.esoteric_enderman.bedwars_plugin.commands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -6,11 +6,11 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import net.slqmy.bedwars_plugin.BedwarsPlugin;
-import net.slqmy.bedwars_plugin.enums.GameState;
-import net.slqmy.bedwars_plugin.types.AbstractCommand;
-import net.slqmy.bedwars_plugin.types.Arena;
-import net.slqmy.bedwars_plugin.utility.ConfigurationUtility;
+import dev.esoteric_enderman.bedwars_plugin.BedwarsPlugin;
+import dev.esoteric_enderman.bedwars_plugin.enums.GameState;
+import dev.esoteric_enderman.bedwars_plugin.types.AbstractCommand;
+import dev.esoteric_enderman.bedwars_plugin.types.Arena;
+import dev.esoteric_enderman.bedwars_plugin.utility.ConfigurationUtility;
 
 import java.util.ArrayList;
 import java.util.List;

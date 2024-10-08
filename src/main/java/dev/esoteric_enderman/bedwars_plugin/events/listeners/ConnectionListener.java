@@ -1,4 +1,4 @@
-package net.slqmy.bedwars_plugin.events.listeners;
+package dev.esoteric_enderman.bedwars_plugin.events.listeners;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -7,10 +7,10 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.jetbrains.annotations.NotNull;
 
-import net.slqmy.bedwars_plugin.BedwarsPlugin;
-import net.slqmy.bedwars_plugin.managers.NameTagManager;
-import net.slqmy.bedwars_plugin.types.Arena;
-import net.slqmy.bedwars_plugin.utility.ConfigurationUtility;
+import dev.esoteric_enderman.bedwars_plugin.BedwarsPlugin;
+import dev.esoteric_enderman.bedwars_plugin.managers.NameTagManager;
+import dev.esoteric_enderman.bedwars_plugin.types.Arena;
+import dev.esoteric_enderman.bedwars_plugin.utility.ConfigurationUtility;
 
 public final class ConnectionListener implements Listener {
 	private final BedwarsPlugin plugin;

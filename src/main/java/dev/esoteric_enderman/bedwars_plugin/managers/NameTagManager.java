@@ -1,10 +1,10 @@
-package net.slqmy.bedwars_plugin.managers;
+package dev.esoteric_enderman.bedwars_plugin.managers;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-import net.slqmy.bedwars_plugin.enums.Team;
+import dev.esoteric_enderman.bedwars_plugin.enums.Team;
 
 public final class NameTagManager {
 	public static void setNameTags(@NotNull final Player player) {

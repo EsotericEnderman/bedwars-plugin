@@ -1,11 +1,11 @@
-package net.slqmy.bedwars_plugin.utility;
+package dev.esoteric_enderman.bedwars_plugin.utility;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.jetbrains.annotations.NotNull;
 
-import net.slqmy.bedwars_plugin.BedwarsPlugin;
+import dev.esoteric_enderman.bedwars_plugin.BedwarsPlugin;
 
 public final class ConfigurationUtility {
 	private static FileConfiguration config;

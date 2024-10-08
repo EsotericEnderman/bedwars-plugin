@@ -1,4 +1,4 @@
-package net.slqmy.bedwars_plugin.utility;
+package dev.esoteric_enderman.bedwars_plugin.utility;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

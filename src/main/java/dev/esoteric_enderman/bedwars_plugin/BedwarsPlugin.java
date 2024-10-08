@@ -1,15 +1,15 @@
-package net.slqmy.bedwars_plugin;
+package dev.esoteric_enderman.bedwars_plugin;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import net.slqmy.bedwars_plugin.commands.BedwarsCommand;
-import net.slqmy.bedwars_plugin.events.listeners.ConnectionListener;
-import net.slqmy.bedwars_plugin.events.listeners.GameListener;
-import net.slqmy.bedwars_plugin.managers.ArenaManager;
-import net.slqmy.bedwars_plugin.types.Arena;
-import net.slqmy.bedwars_plugin.utility.ConfigurationUtility;
+import dev.esoteric_enderman.bedwars_plugin.commands.BedwarsCommand;
+import dev.esoteric_enderman.bedwars_plugin.events.listeners.ConnectionListener;
+import dev.esoteric_enderman.bedwars_plugin.events.listeners.GameListener;
+import dev.esoteric_enderman.bedwars_plugin.managers.ArenaManager;
+import dev.esoteric_enderman.bedwars_plugin.types.Arena;
+import dev.esoteric_enderman.bedwars_plugin.utility.ConfigurationUtility;
 
 public final class BedwarsPlugin extends JavaPlugin {
 	private ArenaManager arenaManager;
