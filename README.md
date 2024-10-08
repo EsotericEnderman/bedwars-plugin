@@ -1,3 +1,3 @@
 # Bedwars Plugin
 
-> A very simple bedwars Minecraft plugin project.
+> A very simple Bedwars Minecraft plugin project.
