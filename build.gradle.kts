@@ -57,7 +57,7 @@ repositories {
 }
 
 dependencies {
-  paperweight.paperDevBundle(paperApiVersion + "-R0.1-SNAPSHOT")
+  paperweight.paperDevBundle("$paperApiVersion-R0.1-SNAPSHOT")
 
   implementation("dev.jorel" , "commandapi-bukkit-shade-mojang-mapped" , "9.5.1")
 }
@@ -77,6 +77,7 @@ bukkitPluginYaml {
 
   main = project.group.toString() + groupStringSeparator + pascalcase(rootProject.name)
   apiVersion = paperApiVersion
+  description = project.description
 
   load = BukkitPluginYaml.PluginLoadOrder.POSTWORLD
 }
