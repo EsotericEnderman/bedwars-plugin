@@ -19,8 +19,8 @@ fun capitalizeFirstLetter(string: String): String {
   return string.first().uppercase() + string.slice(IntRange(1, string.length - 1))
 }
 
-fun snakecase(kebabcaseString: String): String {
-  return kebabcaseString.lowercase().replace(kebabcaseStringSeparator, snakecaseStringSeparator)
+fun snakecase(string: String): String {
+  return string.lowercase().replace(kebabcaseStringSeparator, snakecaseStringSeparator).replace(" ", snakecaseStringSeparator)
 }
 
 fun pascalcase(kebabcaseString: String): String {
@@ -42,7 +42,7 @@ val projectAuthors = listOfNotNull(mainProjectAuthor)
 
 val topLevelDomain = "dev"
 
-group = topLevelDomain + groupStringSeparator + mainProjectAuthor.lowercase() + groupStringSeparator + snakecase(rootProject.name)
+group = topLevelDomain + groupStringSeparator + snakecase(mainProjectAuthor) + groupStringSeparator + snakecase(rootProject.name)
 version = "1.0.0-SNAPSHOT"
 
 val javaVersion = 21
