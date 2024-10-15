@@ -1,3 +1,12 @@
 [submodule "lobby-world"]
 	path = lobby-world
 	url = git@github.com:EsotericEnderman/block-warriors-world.git
+[submodule "maps/bedwars-desert"]
+	path = maps/bedwars-desert
+	url = git@github.com:EsotericEnderman/bedwars-desert-map.git
+[submodule "maps/bedwars-savannah"]
+	path = maps/bedwars-savannah
+	url = git@github.com:EsotericEnderman/bedwars-savannah-map.git
+[submodule "maps/bedwars-snowy-taiga"]
+	path = maps/bedwars-snowy-taiga
+	url = git@github.com:EsotericEnderman/bedwars-snowy-taiga-map.git
