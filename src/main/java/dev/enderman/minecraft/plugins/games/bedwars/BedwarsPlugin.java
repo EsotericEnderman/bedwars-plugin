@@ -1,15 +1,15 @@
-package dev.enderman.minecraft.plugins.bedwars;
+package dev.enderman.minecraft.plugins.games.bedwars;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import dev.enderman.minecraft.plugins.bedwars.commands.BedwarsCommand;
-import dev.enderman.minecraft.plugins.bedwars.event.listeners.ConnectionListener;
-import dev.enderman.minecraft.plugins.bedwars.event.listeners.GameListener;
-import dev.enderman.minecraft.plugins.bedwars.managers.ArenaManager;
-import dev.enderman.minecraft.plugins.bedwars.types.Arena;
-import dev.enderman.minecraft.plugins.bedwars.utility.ConfigurationUtility;
+import dev.enderman.minecraft.plugins.games.bedwars.commands.BedwarsCommand;
+import dev.enderman.minecraft.plugins.games.bedwars.event.listeners.ConnectionListener;
+import dev.enderman.minecraft.plugins.games.bedwars.event.listeners.GameListener;
+import dev.enderman.minecraft.plugins.games.bedwars.managers.ArenaManager;
+import dev.enderman.minecraft.plugins.games.bedwars.types.Arena;
+import dev.enderman.minecraft.plugins.games.bedwars.utility.ConfigurationUtility;
 
 public final class BedwarsPlugin extends JavaPlugin {
 	private ArenaManager arenaManager;

@@ -1,4 +1,4 @@
-package dev.enderman.minecraft.plugins.bedwars.enums;
+package dev.enderman.minecraft.plugins.games.bedwars.enums;
 
 import org.bukkit.ChatColor;
 import org.jetbrains.annotations.NotNull;

@@ -1,10 +1,10 @@
-package dev.enderman.minecraft.plugins.bedwars.managers;
+package dev.enderman.minecraft.plugins.games.bedwars.managers;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-import dev.enderman.minecraft.plugins.bedwars.enums.Team;
+import dev.enderman.minecraft.plugins.games.bedwars.enums.Team;
 
 public final class NameTagManager {
 	public static void setNameTags(@NotNull final Player player) {

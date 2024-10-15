@@ -1,4 +1,4 @@
-package dev.enderman.minecraft.plugins.bedwars.utility;
+package dev.enderman.minecraft.plugins.games.bedwars.utility;
 
 import org.bukkit.Bukkit;
 import org.jetbrains.annotations.Nullable;

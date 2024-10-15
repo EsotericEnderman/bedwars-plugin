@@ -1,4 +1,4 @@
-package dev.enderman.minecraft.plugins.bedwars.utility;
+package dev.enderman.minecraft.plugins.games.bedwars.utility;
 
 import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
 import net.minecraft.server.level.ServerPlayer;

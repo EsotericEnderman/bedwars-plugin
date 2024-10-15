@@ -1,12 +1,12 @@
-package dev.enderman.minecraft.plugins.bedwars.types;
+package dev.enderman.minecraft.plugins.games.bedwars.types;
 
 import org.bukkit.ChatColor;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
 
-import dev.enderman.minecraft.plugins.bedwars.BedwarsPlugin;
-import dev.enderman.minecraft.plugins.bedwars.enums.GameState;
-import dev.enderman.minecraft.plugins.bedwars.utility.ConfigurationUtility;
+import dev.enderman.minecraft.plugins.games.bedwars.BedwarsPlugin;
+import dev.enderman.minecraft.plugins.games.bedwars.enums.GameState;
+import dev.enderman.minecraft.plugins.games.bedwars.utility.ConfigurationUtility;
 
 public final class Countdown extends BukkitRunnable {
 	private final BedwarsPlugin plugin;

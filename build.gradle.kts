@@ -79,6 +79,6 @@ bukkitPluginYaml {
 
   version = project.version.toString()
   apiVersion = paperApiVersion
-  main = project.group.toString() + groupStringSeparator + "minecraft.plugins" + groupStringSeparator + pascalcase(rootProject.name)
+  main = project.group.toString() + groupStringSeparator + "minecraft.plugins.games.bedwars" + groupStringSeparator + pascalcase(rootProject.name)
   load = BukkitPluginYaml.PluginLoadOrder.POSTWORLD
 }

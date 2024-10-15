@@ -1,11 +1,11 @@
-package dev.enderman.minecraft.plugins.bedwars.utility;
+package dev.enderman.minecraft.plugins.games.bedwars.utility;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.jetbrains.annotations.NotNull;
 
-import dev.enderman.minecraft.plugins.bedwars.BedwarsPlugin;
+import dev.enderman.minecraft.plugins.games.bedwars.BedwarsPlugin;
 
 public final class ConfigurationUtility {
 	private static FileConfiguration config;

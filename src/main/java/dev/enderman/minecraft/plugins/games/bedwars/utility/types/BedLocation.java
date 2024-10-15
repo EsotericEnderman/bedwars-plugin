@@ -1,4 +1,4 @@
-package dev.enderman.minecraft.plugins.bedwars.utility.types;
+package dev.enderman.minecraft.plugins.games.bedwars.utility.types;
 
 import org.bukkit.Location;
 import org.bukkit.World;

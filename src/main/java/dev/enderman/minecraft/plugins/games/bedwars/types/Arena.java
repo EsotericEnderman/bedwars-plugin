@@ -1,4 +1,4 @@
-package dev.enderman.minecraft.plugins.bedwars.types;
+package dev.enderman.minecraft.plugins.games.bedwars.types;
 
 import org.bukkit.*;
 import org.bukkit.boss.BossBar;
@@ -7,11 +7,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
 import org.jetbrains.annotations.NotNull;
 
-import dev.enderman.minecraft.plugins.bedwars.BedwarsPlugin;
-import dev.enderman.minecraft.plugins.bedwars.enums.GameState;
-import dev.enderman.minecraft.plugins.bedwars.enums.Team;
-import dev.enderman.minecraft.plugins.bedwars.utility.ConfigurationUtility;
-import dev.enderman.minecraft.plugins.bedwars.utility.types.BedLocation;
+import dev.enderman.minecraft.plugins.games.bedwars.BedwarsPlugin;
+import dev.enderman.minecraft.plugins.games.bedwars.enums.GameState;
+import dev.enderman.minecraft.plugins.games.bedwars.enums.Team;
+import dev.enderman.minecraft.plugins.games.bedwars.utility.ConfigurationUtility;
+import dev.enderman.minecraft.plugins.games.bedwars.utility.types.BedLocation;
 
 import java.util.*;
 

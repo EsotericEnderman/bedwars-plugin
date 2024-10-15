@@ -1,4 +1,4 @@
-package dev.enderman.minecraft.plugins.bedwars.managers;
+package dev.enderman.minecraft.plugins.games.bedwars.managers;
 
 import org.bukkit.*;
 import org.bukkit.block.BlockFace;
@@ -11,10 +11,10 @@ import org.bukkit.scoreboard.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import dev.enderman.minecraft.plugins.bedwars.BedwarsPlugin;
-import dev.enderman.minecraft.plugins.bedwars.enums.Team;
-import dev.enderman.minecraft.plugins.bedwars.types.Arena;
-import dev.enderman.minecraft.plugins.bedwars.utility.types.BedLocation;
+import dev.enderman.minecraft.plugins.games.bedwars.BedwarsPlugin;
+import dev.enderman.minecraft.plugins.games.bedwars.enums.Team;
+import dev.enderman.minecraft.plugins.games.bedwars.types.Arena;
+import dev.enderman.minecraft.plugins.games.bedwars.utility.types.BedLocation;
 
 import java.util.*;
 
