@@ -1,4 +1,4 @@
-package dev.esoteric_enderman.bedwars_plugin.types;
+package dev.enderman.minecraft.plugins.bedwars.types;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -11,7 +11,7 @@ import org.bukkit.util.StringUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import dev.esoteric_enderman.bedwars_plugin.utility.PluginUtility;
+import dev.enderman.minecraft.plugins.bedwars.utility.PluginUtility;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

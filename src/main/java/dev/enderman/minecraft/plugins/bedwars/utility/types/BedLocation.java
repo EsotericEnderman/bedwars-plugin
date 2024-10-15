@@ -1,4 +1,4 @@
-package dev.esoteric_enderman.bedwars_plugin.utility.types;
+package dev.enderman.minecraft.plugins.bedwars.utility.types;
 
 import org.bukkit.Location;
 import org.bukkit.World;

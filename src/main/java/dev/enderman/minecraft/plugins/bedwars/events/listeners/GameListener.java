@@ -1,4 +1,4 @@
-package dev.esoteric_enderman.bedwars_plugin.events.listeners;
+package dev.enderman.minecraft.plugins.bedwars.events.listeners;
 
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
@@ -17,11 +17,11 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.metadata.MetadataValue;
 import org.jetbrains.annotations.NotNull;
 
-import dev.esoteric_enderman.bedwars_plugin.BedwarsPlugin;
-import dev.esoteric_enderman.bedwars_plugin.enums.GameState;
-import dev.esoteric_enderman.bedwars_plugin.enums.Team;
-import dev.esoteric_enderman.bedwars_plugin.types.Arena;
-import dev.esoteric_enderman.bedwars_plugin.types.Game;
+import dev.enderman.minecraft.plugins.bedwars.BedwarsPlugin;
+import dev.enderman.minecraft.plugins.bedwars.enums.GameState;
+import dev.enderman.minecraft.plugins.bedwars.enums.Team;
+import dev.enderman.minecraft.plugins.bedwars.types.Arena;
+import dev.enderman.minecraft.plugins.bedwars.types.Game;
 
 import java.util.List;
 

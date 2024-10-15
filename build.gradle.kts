@@ -42,7 +42,7 @@ val projectAuthors = listOfNotNull(mainProjectAuthor)
 
 val topLevelDomain = "dev"
 
-group = topLevelDomain + groupStringSeparator + snakecase(mainProjectAuthor) + groupStringSeparator + snakecase(rootProject.name)
+group = topLevelDomain + groupStringSeparator + "enderman"
 version = "1.0.0-SNAPSHOT"
 
 val javaVersion = 21
@@ -73,11 +73,12 @@ tasks {
 }
 
 bukkitPluginYaml {
+  name = "Bedwars"
+  description = project.description
   authors = projectAuthors
 
-  main = project.group.toString() + groupStringSeparator + pascalcase(rootProject.name)
+  version = project.version.toString()
   apiVersion = paperApiVersion
-  description = project.description
-
+  main = project.group.toString() + groupStringSeparator + "minecraft.plugins" + groupStringSeparator + pascalcase(rootProject.name)
   load = BukkitPluginYaml.PluginLoadOrder.POSTWORLD
 }

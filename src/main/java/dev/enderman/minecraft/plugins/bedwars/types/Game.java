@@ -1,4 +1,4 @@
-package dev.esoteric_enderman.bedwars_plugin.types;
+package dev.enderman.minecraft.plugins.bedwars.types;
 
 import org.bukkit.*;
 import org.bukkit.block.Block;
@@ -12,13 +12,13 @@ import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.scoreboard.Scoreboard;
 import org.jetbrains.annotations.NotNull;
 
-import dev.esoteric_enderman.bedwars_plugin.BedwarsPlugin;
-import dev.esoteric_enderman.bedwars_plugin.enums.GameState;
-import dev.esoteric_enderman.bedwars_plugin.enums.Team;
-import dev.esoteric_enderman.bedwars_plugin.managers.NameTagManager;
-import dev.esoteric_enderman.bedwars_plugin.utility.ConfigurationUtility;
-import dev.esoteric_enderman.bedwars_plugin.utility.PacketUtility;
-import dev.esoteric_enderman.bedwars_plugin.utility.types.BedLocation;
+import dev.enderman.minecraft.plugins.bedwars.BedwarsPlugin;
+import dev.enderman.minecraft.plugins.bedwars.enums.GameState;
+import dev.enderman.minecraft.plugins.bedwars.enums.Team;
+import dev.enderman.minecraft.plugins.bedwars.managers.NameTagManager;
+import dev.enderman.minecraft.plugins.bedwars.utility.ConfigurationUtility;
+import dev.enderman.minecraft.plugins.bedwars.utility.PacketUtility;
+import dev.enderman.minecraft.plugins.bedwars.utility.types.BedLocation;
 
 import java.util.*;
 
