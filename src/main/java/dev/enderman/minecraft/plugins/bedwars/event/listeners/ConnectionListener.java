@@ -1,4 +1,4 @@
-package dev.enderman.minecraft.plugins.bedwars.events.listeners;
+package dev.enderman.minecraft.plugins.bedwars.event.listeners;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

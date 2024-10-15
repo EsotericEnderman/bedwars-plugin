@@ -5,8 +5,8 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import dev.enderman.minecraft.plugins.bedwars.commands.BedwarsCommand;
-import dev.enderman.minecraft.plugins.bedwars.events.listeners.ConnectionListener;
-import dev.enderman.minecraft.plugins.bedwars.events.listeners.GameListener;
+import dev.enderman.minecraft.plugins.bedwars.event.listeners.ConnectionListener;
+import dev.enderman.minecraft.plugins.bedwars.event.listeners.GameListener;
 import dev.enderman.minecraft.plugins.bedwars.managers.ArenaManager;
 import dev.enderman.minecraft.plugins.bedwars.types.Arena;
 import dev.enderman.minecraft.plugins.bedwars.utility.ConfigurationUtility;
