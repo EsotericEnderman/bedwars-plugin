@@ -1,5 +1,7 @@
 # Bedwars Plugin
 
+[![Project Status: Completed](./assets/images/badges/status.svg)](./)
+
 > A very simple Bedwars Minecraft plugin project.
 
 ## License
